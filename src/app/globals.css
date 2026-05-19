@@ -1,26 +1,279 @@
 @import "tailwindcss";
 
+@theme {
+  /* Colors */
+  --color-deep-onyx: #140b00;
+  --color-dawn-linen: #fff1e0;
+  --color-amber-glow: #ffb442;
+  --color-abyss: #0b0600;
+  --color-fossil-grey: #43392d;
+  --color-desert-stone: #4f4538;
+  --color-pale-ash: #85796c;
+  --color-dark-charcoal: #181109;
+  --color-warm-mist: #f1f1f1;
+
+  /* Typography */
+  --font-pp-neue-montreal: var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Spacing */
+  --spacing-4: 4px;
+  --spacing-6: 6px;
+  --spacing-8: 8px;
+  --spacing-9: 9px;
+  --spacing-10: 10px;
+  --spacing-12: 12px;
+  --spacing-13: 13px;
+  --spacing-14: 14px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-28: 28px;
+  --spacing-32: 32px;
+  --spacing-52: 52px;
+  --spacing-72: 72px;
+  --spacing-152: 152px;
+
+  /* Border Radius */
+  --radius-md: 6px;
+  --radius-full: 1162.8px;
+  --radius-full-2: 1296px;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Layout Settings */
+  --section-gap: 52px;
+  --card-padding: 12px;
+  --element-gap: 12px;
+
+  /* Radii mapping */
+  --radius-cards: 6px;
+  --radius-inputs: 1296px;
+  --radius-buttons: 1296px;
+  --radius-navigation: 1162.8px;
+
+  /* Background Gradient */
+  --gradient-amber-glow: linear-gradient(315deg, rgba(255, 180, 66, 0), rgb(255, 180, 66) 49%, rgb(255, 241, 224));
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Global resets and layout */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  background-color: #0b0600; /* Abyss */
+  color: #fff1e0; /* Dawn Linen */
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0b0600; /* Abyss */
+  color: #fff1e0; /* Dawn Linen */
+  font-family: var(--font-pp-neue-montreal);
+  font-feature-settings: "ss01" on, "cv01" on;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b0600;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #43392d;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ffb442;
+}
+
+/* Custom typography classes matching the precision type scale */
+.text-display {
+  font-size: 81px;
+  line-height: 0.8;
+  letter-spacing: -0.014em;
+  font-weight: 500;
+}
+
+.text-heading-lg {
+  font-size: 55px;
+  line-height: 1.1;
+  letter-spacing: -0.008em;
+  font-weight: 500;
+}
+
+.text-heading {
+  font-size: 35px;
+  line-height: 1.2;
+  letter-spacing: -0.006em;
+  font-weight: 500;
+}
+
+.text-subheading {
+  font-size: 22px;
+  line-height: 1.43;
+  letter-spacing: -0.002em;
+  font-weight: 500;
+}
+
+.text-body {
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.text-caption {
+  font-size: 10px;
+  line-height: 1.5;
+  letter-spacing: 0.1px;
+  font-weight: 400;
+}
+
+/* Fallback responsive scaling for smaller viewports */
+@media (max-width: 1024px) {
+  .text-display {
+    font-size: 56px;
+    line-height: 0.9;
+    letter-spacing: -0.010em;
+  }
+  .text-heading-lg {
+    font-size: 42px;
+    line-height: 1.1;
+  }
+}
+
+@media (max-width: 640px) {
+  .text-display {
+    font-size: 40px;
+    line-height: 0.95;
+    letter-spacing: -0.008em;
+  }
+  .text-heading-lg {
+    font-size: 32px;
+    line-height: 1.15;
+  }
+  .text-heading {
+    font-size: 26px;
+  }
+}
+
+/* Ambient Oasis Elements */
+.grid-bg-oasis {
+  background-size: 60px 60px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 180, 66, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 180, 66, 0.02) 1px, transparent 1px);
+}
+
+.glow-oasis {
+  background: radial-gradient(circle, rgba(255, 180, 66, 0.08) 0%, rgba(20, 11, 0, 0) 70%);
+}
+
+.glow-oasis-soft {
+  background: radial-gradient(circle, rgba(255, 241, 224, 0.04) 0%, rgba(20, 11, 0, 0) 60%);
+}
+
+/* Button components */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffb442; /* Amber Glow */
+  color: #140b00; /* Deep Onyx */
+  font-family: var(--font-pp-neue-montreal);
+  font-weight: 500;
+  font-size: 14px;
+  padding: 9px 15px;
+  border-radius: 1296px;
+  border: 1px solid #ffb442;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-primary:hover {
+  background-color: #fff1e0;
+  border-color: #fff1e0;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: #fff1e0;
+  font-family: var(--font-pp-neue-montreal);
+  font-weight: 500;
+  font-size: 14px;
+  padding: 9px 15px;
+  border-radius: 1296px;
+  border: 1px solid rgba(255, 241, 224, 0.15);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 241, 224, 0.05);
+  border-color: rgba(255, 241, 224, 0.4);
+}
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 9999px;
+  background-color: #ffb442;
+  color: #140b00;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-icon:hover {
+  background-color: #fff1e0;
+  transform: scale(1.05);
+}
+
+/* Input components */
+.input-ghost {
+  background-color: transparent;
+  color: #fff1e0;
+  font-family: var(--font-pp-neue-montreal);
+  font-size: 14px;
+  padding: 8px 20px;
+  border: 1px solid rgba(255, 241, 224, 0.25);
+  border-radius: 1296px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input-ghost:focus {
+  border-color: #ffb442;
+  box-shadow: 0 0 0 1px rgba(255, 180, 66, 0.2);
+}
+
+/* Card components */
+.card-dark {
+  background-color: #140b00; /* Deep Onyx */
+  border: 1px solid #181109; /* Dark Charcoal */
+  border-radius: 6px;
+  padding: 12px;
+  transition: border-color 0.3s ease;
+}
+
+.card-dark:hover {
+  border-color: #43392d; /* Fossil Grey */
+}
+
+.card-accent {
+  background-color: #ffb442; /* Amber Glow */
+  color: #140b00; /* Deep Onyx */
+  border-radius: 6px;
+  padding: 12px;
 }
