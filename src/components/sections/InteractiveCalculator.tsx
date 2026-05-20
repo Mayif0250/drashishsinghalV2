@@ -19,10 +19,10 @@ export default function InteractiveCalculator() {
   const getRecommendation = () => {
     if (symptom === "sports_injury" || symptom === "ligament_tear") {
       return {
-        title: "Arthroscopy & Sports Medicine Audit Recommended",
-        urgency: "Moderate to High",
-        protocol: "Minimally invasive keyhole diagnosis (Arthroscopy) to audit ligament fiber tear integrity and restore muscle mobility.",
-        timeframe: "Within 5-7 days",
+        title: "Arthroscopy & Sports Medicine Suitability Audit",
+        urgency: "High Clinical Priority",
+        protocol: "Minimally invasive keyhole diagnosis (Arthroscopy) to inspect ligament fiber tear integrity and schedule muscle balance rehabilitation.",
+        timeframe: "Within 3-5 days",
       };
     }
     
@@ -30,23 +30,23 @@ export default function InteractiveCalculator() {
       if (severity >= 7 || duration === 3) {
         return {
           title: "Robotic-Assisted Joint Replacement Assessment",
-          urgency: "High Clinical Vitals Audit",
-          protocol: "Dr. Ashish Singhal's custom robotic-assisted mapping, sparing healthy bone tissue and evaluating implant placement metrics.",
-          timeframe: "Within 2-3 days",
+          urgency: "Immediate Action Required",
+          protocol: "Dr. Ashish Singhal's custom 3D robotic-assisted pre-op mapping, sparing up to 40% more healthy bone/ligament tissue and verifying optimal implant alignment.",
+          timeframe: "Within 24-48 hours",
         };
       }
       return {
-        title: "Conservative Orthopedic Joint Care Audit",
-        urgency: "Low to Moderate",
-        protocol: "Non-surgical joint lubrication, personalized active physical therapy, and targeted anti-inflammatory assessments.",
-        timeframe: "Within 7-10 days",
+        title: "Biological Joint Preservation Audit",
+        urgency: "Moderate Priority",
+        protocol: "Non-surgical high-viscosity joint lubrication, custom bio-mechanical physical therapy, and targeted anti-inflammatory assessments to halt further wear.",
+        timeframe: "Within 5-7 days",
       };
     }
 
     return {
-      title: "Comprehensive Orthopedic Consultation",
-      urgency: "Moderate",
-      protocol: "Physical diagnostic analysis and digital joint mapping under MS (Ortho) specialist guidance.",
+      title: "Comprehensive Joint Consultation Program",
+      urgency: "Standard Priority",
+      protocol: "Physical diagnostic analysis, posture evaluation, and digital joint alignment check under MS (Ortho) specialist guidance.",
       timeframe: "Within 7 days",
     };
   };
@@ -83,10 +83,10 @@ export default function InteractiveCalculator() {
             <Stethoscope size={14} /> Interactive Diagnostic Intake
           </span>
           <h2 className="text-section font-bold tracking-tight text-trust-navy mt-3">
-            Epigenetic Joint & Mobility Diagnostic Audit
+            Joint Mobility & Surgical Suitability Assessment
           </h2>
           <p className="text-body mt-4 leading-relaxed">
-            Select your main orthopedic indicators below to receive an outcome-focused treatment recommendation and route directly to Udaipur clinic schedules.
+            Select your main orthopedic joint indicators below to calculate your suitability score and receive an expert-recommended clinical action plan in 60 seconds.
           </p>
         </div>
 
@@ -104,10 +104,10 @@ export default function InteractiveCalculator() {
                 </span>
                 <div className="grid grid-cols-2 gap-3">
                   {[
-                    { id: "knee_pain", label: "Chronic Knee Pain" },
-                    { id: "hip_stiffness", label: "Hip Joint Stiffness" },
-                    { id: "sports_injury", label: "Sports Injury" },
-                    { id: "ligament_tear", label: "Suspected Ligament Tear" },
+                    { id: "knee_pain", label: "Chronic Knee Pain (Arthritis)" },
+                    { id: "hip_stiffness", label: "Hip Joint Stiffness & Pain" },
+                    { id: "sports_injury", label: "Knee / Shoulder Sports Injury" },
+                    { id: "ligament_tear", label: "Suspected Ligament / ACL Tear" },
                   ].map((sym) => (
                     <button
                       key={sym.id}
@@ -223,10 +223,10 @@ export default function InteractiveCalculator() {
               </div>
               <div>
                 <span className="text-[10px] font-bold text-recovery-teal uppercase tracking-widest block">
-                  Intake Report
+                  Suitability Report
                 </span>
                 <span className="text-sm font-bold text-trust-navy block">
-                  Dr. Singhal's Diagnostic Routing
+                  Joint Diagnostics Audit Route
                 </span>
               </div>
             </div>
@@ -234,7 +234,7 @@ export default function InteractiveCalculator() {
             {/* Dynamic Recommendation Panel */}
             <div className="py-6 flex-grow flex flex-col justify-center">
               <span className="text-[10px] font-bold uppercase tracking-wider text-trust-navy/60 block">
-                Primary Assessment
+                Intake Assessment
               </span>
               <AnimatePresence mode="wait">
                 <motion.div
@@ -286,7 +286,7 @@ export default function InteractiveCalculator() {
               className="btn-primary w-full text-center py-3.5 font-bold uppercase tracking-wider text-xs shadow-md mt-6 rounded-lg flex items-center justify-center gap-2"
             >
               <Calendar size={14} />
-              <span>Route & Book Appointment Slot</span>
+              <span>Claim Free Joint Audit & Book Priority Slot</span>
             </a>
           </div>
 

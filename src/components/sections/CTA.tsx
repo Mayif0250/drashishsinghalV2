@@ -54,6 +54,27 @@ export default function CTA() {
               <p className="text-body mt-4 leading-relaxed">
                 Fill out the clinic scheduling intake. Our executive clinic coordinators will review your joint indicators and verify an appointment slot with Dr. Ashish Singhal.
               </p>
+
+              {/* Hormozi Style High-Converting Value Stack Checklist */}
+              <div className="mt-6 space-y-3 bg-[#0b0600]/40 p-4 border border-border-grey rounded-lg">
+                <span className="text-[10px] font-bold text-[#ffb442] uppercase tracking-wider block">
+                  Included in Your Diagnostic Session:
+                </span>
+                <ul className="space-y-2.5 text-xs font-semibold text-trust-navy/90">
+                  <li className="flex items-center gap-2 text-white/90">
+                    <span className="text-[#ffb442] font-bold">✓</span> Complete Biomechanical Joint Diagnostic Audit
+                  </li>
+                  <li className="flex items-center gap-2 text-white/90">
+                    <span className="text-[#ffb442] font-bold">✓</span> Digital Pre-Op Suitability Check (Robotic Alignment)
+                  </li>
+                  <li className="flex items-center gap-2 text-white/90">
+                    <span className="text-[#ffb442] font-bold">✓</span> Range-of-Motion Analysis & Custom Recovery Blueprint
+                  </li>
+                  <li className="flex items-center gap-2 text-white/90">
+                    <span className="text-[#ffb442] font-bold">✓</span> Priority Allocation of Dedicated Post-Op Care Coordinator
+                  </li>
+                </ul>
+              </div>
             </div>
 
             {/* Direct Helpline numbers block */}
