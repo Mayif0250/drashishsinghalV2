@@ -1,262 +1,160 @@
 @import "tailwindcss";
 
 @theme {
-  /* Dynamic Theme Colors */
-  --color-canvas-warmth: var(--theme-canvas-warmth);
-  --color-surface-white: var(--theme-surface-white);
-  --color-deep-graphite: var(--theme-deep-graphite);
-  --color-text-black: var(--theme-text-black);
-  --color-headline-dark: var(--theme-headline-dark);
-  --color-body-gray: var(--theme-body-gray);
-  --color-muted-text: var(--theme-muted-text);
-  --color-line-gray: var(--theme-line-gray);
-  --color-ghost-fill: var(--theme-ghost-fill);
+  /* Colors — Parloa */
+  --color-midnight-charcoal: #1f1c1b;
+  --color-canvas-white: #ffffff;
+  --color-cream-canvas: #ebe9e1;
+  --color-parchment-gray: #f5f4f0;
+  --color-stone-accent: #a69b92;
+  --color-raven-black: #000000;
+  --color-deep-plum: #2d2724;
+  --color-ash-mist: #c7c1b7;
+  --color-faded-stone: #d9d6ce;
+  --color-sunset-orange: #ff7714;
+  --color-prismatic-veil: #992626;
 
-  /* Descriptive mappings to prevent component compile breaks */
-  --color-medical-blue: var(--theme-deep-graphite);
-  --color-trust-navy: var(--theme-text-black);
-  --color-recovery-teal: var(--theme-headline-dark);
-  --color-soft-grey: var(--theme-canvas-warmth);
-  --color-border-grey: var(--theme-line-gray);
-  --color-success-green: var(--theme-headline-dark);
+  /* Typography */
+  --font-geist: 'Geist', 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-exposure30: 'Exposure30', 'Playfair Display', Georgia, 'Times New Roman', serif;
 
-  /* Typography Fonts */
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-hanken-grotesk), system-ui, sans-serif;
-  --font-mono: var(--font-sf-mono), monospace;
+  /* Type Scale */
+  --text-caption: 10px;
+  --leading-caption: 1.4;
+  --tracking-caption: 0.02px;
+  --text-body: 14px;
+  --leading-body: 1.5;
+  --tracking-body: 0.01px;
+  --text-subheading: 24px;
+  --leading-subheading: 1.3;
+  --tracking-subheading: 0.01px;
+  --text-heading-sm: 28px;
+  --leading-heading-sm: 1.2;
+  --tracking-heading-sm: -0.01px;
+  --text-heading: 42px;
+  --leading-heading: 1.1;
+  --tracking-heading: -0.01px;
+  --text-heading-lg: 82px;
+  --leading-heading-lg: 1;
+  --tracking-heading-lg: -0.01px;
+  --text-display: 96px;
+  --leading-display: 1;
+  --tracking-display: -0.01px;
+
+  /* Spacing */
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-40: 40px;
+  --spacing-48: 48px;
+  --spacing-60: 60px;
+  --spacing-64: 64px;
+  --spacing-72: 72px;
 }
 
-:root {
-  /* Layout Metrics */
-  --section-gap: 50px;
-  --card-padding: 20px;
-  --element-gap: 10px;
-
-  /* Light Theme Properties (Medical Blue Aesthetic) */
-  --theme-canvas-warmth: #ffffff; /* White background */
-  --theme-surface-white: #ffffff; /* Card backgrounds */
-  --theme-deep-graphite: #2B8DF8; /* Primary action / Accent Blue */
-  --theme-text-black: #0A1A3A; /* Dark Navy for pure black */
-  --theme-headline-dark: #0A1A3A; /* Dark Navy for headings */
-  --theme-body-gray: #6B7280; /* Gray 500 for body text */
-  --theme-muted-text: #9CA3AF; /* Gray 400 for muted text */
-  --theme-line-gray: #E5E7EB; /* Gray 200 for borders */
-  --theme-ghost-fill: #0A5BA6; /* Dark Medical Blue */
-}
-
-:root.dark {
-  /* Dark Theme Properties (Medical Navy Aesthetic) */
-  --theme-canvas-warmth: #060e1f; /* Deep Navy background */
-  --theme-surface-white: #0A1A3A; /* Lighter Navy cards */
-  --theme-deep-graphite: #33A1F2; /* Vibrant Blue for accents */
-  --theme-text-black: #ffffff; /* White text */
-  --theme-headline-dark: #ffffff; /* White headings */
-  --theme-body-gray: #9CA3AF; /* Gray 400 for body */
-  --theme-muted-text: #6B7280; /* Gray 500 */
-  --theme-line-gray: #1E3A8A; /* Navy border */
-  --theme-ghost-fill: #0A5BA6; /* Dark Medical Blue */
-}
-
-/* Global Reset and Aesthetics */
-html {
-  scroll-behavior: smooth;
-  background-color: var(--theme-canvas-warmth);
-  color: var(--theme-body-gray);
-}
+/* ── Global Reset ── */
+html { scroll-behavior: smooth; }
 
 body {
-  background-color: var(--theme-canvas-warmth);
-  color: var(--theme-body-gray);
-  font-family: var(--font-sans);
+  background-color: #ebe9e1;
+  color: #1f1c1b;
+  font-family: 'Geist', 'Inter', ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Alveos One Custom Compact Display Typography scale */
-.text-display {
-  font-family: var(--font-display);
-  font-size: 52px;
-  line-height: 1.1;
-  font-weight: 500;
-  color: var(--theme-headline-dark);
-}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #ebe9e1; }
+::-webkit-scrollbar-thumb { background: #c7c1b7; }
+::-webkit-scrollbar-thumb:hover { background: #a69b92; }
 
-.text-hero {
-  font-family: var(--font-display);
-  font-size: 38px;
-  line-height: 1.2;
-  font-weight: 500;
-  color: var(--theme-headline-dark);
-}
+/* ── Buttons ── */
 
-.text-section {
-  font-family: var(--font-display);
-  font-size: 28px;
-  line-height: 1.2;
-  font-weight: 600;
-  color: var(--theme-headline-dark);
-}
-
-.text-subheading {
-  font-family: var(--font-display);
-  font-size: 18px;
-  line-height: 1.4;
-  font-weight: 500;
-  color: var(--theme-headline-dark);
-}
-
-.text-body {
-  font-family: var(--font-sans);
-  font-size: 16px;
-  line-height: 1.4;
-  font-weight: 400;
-  color: var(--theme-body-gray);
-}
-
-.text-caption {
-  font-family: var(--font-sans);
-  font-size: 10px;
-  line-height: 1.2;
-  font-weight: 600;
-  letter-spacing: 4.44px;
-  text-transform: uppercase;
-  color: var(--theme-muted-text);
-}
-
-/* Responsive Scaling for smaller screens */
-@media (max-width: 1024px) {
-  .text-display {
-    font-size: 38px;
-    line-height: 1.15;
-  }
-  .text-hero {
-    font-size: 28px;
-    line-height: 1.2;
-  }
-  .text-section {
-    font-size: 24px;
-  }
-}
-
-@media (max-width: 640px) {
-  .text-display {
-    font-size: 28px;
-    line-height: 1.2;
-  }
-  .text-hero {
-    font-size: 24px;
-    line-height: 1.25;
-  }
-  .text-section {
-    font-size: 20px;
-  }
-  .text-subheading {
-    font-size: 16px;
-  }
-}
-
-/* Scrollbar styling */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--theme-canvas-warmth);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--theme-line-gray);
-  border-radius: 9999px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--theme-deep-graphite);
-}
-
-/* Filled Primary Button */
-.btn-primary {
+/* Primary: Midnight Charcoal bg, Canvas White text, 0px radius */
+.btn-parloa-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--theme-deep-graphite);
-  color: #ffffff; /* Always white text on primary button */
-  font-family: var(--font-sans);
-  font-weight: 700;
-  font-size: 14px;
-  padding: 14px 30px;
-  border-radius: 8px; /* Match Hero rounded-lg */
-  border: none;
-  box-shadow: 0 8px 30px rgba(43, 141, 248, 0.3);
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.btn-primary:hover {
-  background-color: #1E74D4; /* Hover color from hero */
+  gap: 8px;
+  background-color: #1f1c1b;
   color: #ffffff;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(43, 141, 248, 0.5);
+  font-family: var(--font-geist);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.33;
+  padding: 12px 20px;
+  border-radius: 0px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  text-decoration: none;
+  white-space: nowrap;
 }
+.btn-parloa-primary:hover { background-color: #2d2724; }
 
-/* Ghost Navigation Button */
-.btn-secondary {
+/* Light: Canvas White bg, Midnight Charcoal text, 0px radius */
+.btn-parloa-light {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: transparent;
-  color: var(--theme-text-black);
-  font-family: var(--font-sans);
-  font-weight: 600;
-  font-size: 12px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 7px 20px;
-  border-radius: 8px;
-  border: 1px solid var(--theme-line-gray);
+  gap: 8px;
+  background-color: #ffffff;
+  color: #1f1c1b;
+  font-family: var(--font-geist);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.33;
+  padding: 12px 20px;
+  border-radius: 0px;
+  border: none;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: background-color 0.2s ease;
+  text-decoration: none;
+  white-space: nowrap;
 }
+.btn-parloa-light:hover { background-color: #f5f4f0; }
 
-.btn-secondary:hover {
-  background-color: color-mix(in srgb, var(--theme-deep-graphite) 5%, transparent);
-  border-color: var(--theme-deep-graphite);
-  transform: translateY(-1px);
+/* Ghost: transparent, Canvas White text (for dark sections/nav) */
+.btn-parloa-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: transparent;
+  color: #ffffff;
+  font-family: var(--font-geist);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.33;
+  padding: 12px 12px;
+  border-radius: 0px;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  text-decoration: none;
+  white-space: nowrap;
 }
+.btn-parloa-ghost:hover { color: #ebe9e1; }
 
-/* Clean Modern Content Card */
-.card-clinical {
-  background-color: var(--theme-surface-white);
-  border: 1px solid var(--theme-line-gray);
-  border-radius: 16px; /* modern rounded-2xl */
-  padding: 24px 28px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-  transition: all 0.3s ease;
+/* ── Form inputs ── */
+.input-parloa {
+  width: 100%;
+  background-color: #1f1c1b;
+  color: #ffffff;
+  font-family: var(--font-geist);
+  font-size: 14px;
+  padding: 14px;
+  border: 1px solid #a69b92;
+  border-radius: 0px;
+  outline: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
-
-.card-clinical:hover {
-  border-color: var(--theme-deep-graphite);
-  box-shadow: 0 10px 40px rgba(10, 91, 166, 0.08); /* Medical blue shadow tint */
-  transform: translateY(-2px);
-}
-
-/* Clean Custom Global Form overrides */
-input[type="text"],
-input[type="tel"],
-input[type="date"],
-select {
-  background-color: var(--theme-surface-white) !important;
-  color: var(--theme-text-black) !important;
-  border: 1px solid var(--theme-line-gray) !important;
-  border-radius: 12px !important;
-  font-size: 14px !important;
-  outline: none !important;
-  box-shadow: rgba(0, 0, 0, 0.06) 0px 1px 5px 0px !important;
-}
-
-input[type="text"]:focus,
-input[type="tel"]:focus,
-input[type="date"]:focus,
-select:focus {
-  border-color: var(--theme-deep-graphite) !important;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 10px 0px !important;
+.input-parloa::placeholder { color: #a69b92; }
+.input-parloa:focus {
+  background-color: #2d2724;
+  border-color: #ffffff;
 }

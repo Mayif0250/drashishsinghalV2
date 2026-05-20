@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="flex-1 flex flex-col bg-canvas-warmth">
+      <main className="flex-1 flex flex-col bg-cream-canvas">
         <Hero />
         <Stats />
         <Features />
