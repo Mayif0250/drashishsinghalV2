@@ -16,10 +16,10 @@ export default function Hero() {
           priority
           className="object-cover object-right opacity-100"
         />
-        {/* Soft, light gradient overlays for seamless blending and crisp visual legibility */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#fcf9f7] via-[#fcf9f7]/95 md:via-[#fcf9f7]/85 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#fcf9f7] via-[#fcf9f7]/30 to-transparent pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#fcf9f7]/40 via-transparent to-transparent pointer-events-none" />
+        {/* Reduced-opacity overlays — lets background image show clearly */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#fcf9f7]/90 via-[#fcf9f7]/60 md:via-[#fcf9f7]/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#fcf9f7]/50 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#fcf9f7]/15 via-transparent to-transparent pointer-events-none" />
       </div>
 
       <div className="max-w-[94%] mx-auto px-4 md:px-8 w-full relative z-10 flex-grow flex items-center pt-8">
