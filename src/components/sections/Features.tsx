@@ -44,18 +44,18 @@ export default function Features() {
   ];
 
   return (
-    <section id="services" className="relative py-24 bg-[#0b0600] overflow-hidden">
+    <section id="services" className="relative py-24 bg-canvas-warmth border-b border-line-gray overflow-hidden">
       <div className="max-w-[94%] mx-auto px-4 md:px-8">
         
         {/* Section Header */}
         <div className="max-w-2xl mb-16">
-          <span className="text-caption font-bold uppercase tracking-wider text-recovery-teal">
+          <span className="text-caption block text-headline-dark/70 font-semibold mb-2">
             Core Specializations
           </span>
-          <h2 className="text-section font-bold tracking-tight text-trust-navy mt-3">
+          <h2 className="text-section font-bold tracking-tight text-headline-dark mt-3">
             Advanced Orthopedic Treatments & Surgical Precision
           </h2>
-          <p className="text-body mt-4 leading-relaxed">
+          <p className="text-body mt-4 leading-relaxed text-body-gray">
             Dr. Ashish Singhal offers comprehensive clinical diagnostic pathways and advanced, technology-driven treatments to resolve chronic joint pain and restore native functional mobility.
           </p>
         </div>
@@ -74,21 +74,21 @@ export default function Features() {
               <div>
                 {/* Icon & Badge */}
                 <div className="flex items-center justify-between mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-medical-blue/10 flex items-center justify-center text-medical-blue">
+                  <div className="w-12 h-12 rounded-[12px] bg-deep-graphite/5 flex items-center justify-center text-deep-graphite shadow-sm">
                     <treat.icon size={22} strokeWidth={2.5} />
                   </div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-recovery-teal bg-soft-grey px-3 py-1 rounded-full">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-headline-dark bg-canvas-warmth px-3 py-1 rounded-[12px] border border-line-gray">
                     {treat.badge}
                   </span>
                 </div>
 
                 {/* Heading */}
-                <h3 className="text-subheading font-bold text-trust-navy mt-4">
+                <h3 className="text-subheading font-bold text-headline-dark mt-4">
                   {treat.title}
                 </h3>
                 
                 {/* Description */}
-                <p className="text-body text-sm mt-3 leading-relaxed">
+                <p className="text-body text-sm mt-3 leading-relaxed text-body-gray">
                   {treat.desc}
                 </p>
 
@@ -96,19 +96,19 @@ export default function Features() {
                 <ul className="mt-6 space-y-3">
                   {treat.points.map((pt, pIdx) => (
                     <li key={pIdx} className="flex items-start gap-2.5">
-                      <CheckCircle size={14} className="text-success-green mt-1 flex-shrink-0" />
-                      <span className="text-sm font-medium text-trust-navy">{pt}</span>
+                      <CheckCircle size={14} className="text-deep-graphite mt-1 flex-shrink-0" />
+                      <span className="text-xs font-bold text-body-gray uppercase tracking-wider">{pt}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
               {/* Action trigger */}
-              <div className="mt-8 pt-6 border-t border-border-grey flex items-center justify-between">
-                <span className="text-caption font-mono uppercase tracking-widest">
+              <div className="mt-8 pt-6 border-t border-line-gray flex items-center justify-between">
+                <span className="text-caption font-semibold text-muted-text">
                   Specialty 0{idx + 1}
                 </span>
-                <a href="#booking" className="text-xs font-bold text-medical-blue hover:text-trust-navy transition-colors uppercase tracking-wider">
+                <a href="#booking" className="text-xs font-bold text-deep-graphite hover:text-headline-dark transition-colors uppercase tracking-wider">
                   Book Clinic Audit
                 </a>
               </div>

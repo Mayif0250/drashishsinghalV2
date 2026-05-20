@@ -94,12 +94,12 @@ export default function InteractiveCalculator() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
           {/* Intake Controls (Left Column) */}
-          <div className="lg:col-span-7 bg-[#140b00] border border-border-grey p-8 rounded-[6px] flex flex-col justify-between shadow-sm">
+          <div className="lg:col-span-7 bg-surface-white border border-line-gray p-8 rounded-[25px] flex flex-col justify-between shadow-sm">
             <div className="space-y-8">
               
               {/* Parameter 1: Symptom Selector */}
               <div>
-                <span className="text-caption font-bold text-trust-navy uppercase tracking-wider block mb-3">
+                <span className="text-xs font-bold text-headline-dark uppercase tracking-wider block mb-3">
                   1. Select Primary Orthopedic Joint Indicator
                 </span>
                 <div className="grid grid-cols-2 gap-3">
@@ -112,10 +112,10 @@ export default function InteractiveCalculator() {
                     <button
                       key={sym.id}
                       onClick={() => setSymptom(sym.id)}
-                      className={`px-4 py-3 rounded-full border text-sm font-semibold transition-all ${
+                      className={`px-4 py-3 rounded-[12px] border text-xs font-bold transition-all uppercase tracking-wide ${
                         symptom === sym.id
-                          ? "bg-medical-blue border-medical-blue text-white shadow-md shadow-medical-blue/20"
-                          : "bg-transparent border-border-grey text-trust-navy hover:border-medical-blue"
+                          ? "bg-deep-graphite border-deep-graphite text-canvas-warmth shadow-sm"
+                          : "bg-transparent border-line-gray text-headline-dark hover:border-deep-graphite"
                       }`}
                     >
                       {sym.label}
@@ -126,7 +126,7 @@ export default function InteractiveCalculator() {
 
               {/* Parameter 2: Duration Selector */}
               <div>
-                <span className="text-caption font-bold text-trust-navy uppercase tracking-wider block mb-3">
+                <span className="text-xs font-bold text-headline-dark uppercase tracking-wider block mb-3">
                   2. Duration of Indicators
                 </span>
                 <div className="grid grid-cols-3 gap-2">
@@ -138,10 +138,10 @@ export default function InteractiveCalculator() {
                     <button
                       key={dur.val}
                       onClick={() => setDuration(dur.val)}
-                      className={`py-2 text-xs font-bold uppercase tracking-wider border rounded-full transition-all ${
+                      className={`py-2.5 text-xs font-bold uppercase tracking-wider border rounded-[12px] transition-all ${
                         duration === dur.val
-                          ? "bg-recovery-teal border-recovery-teal text-white shadow-md"
-                          : "bg-transparent border-border-grey text-trust-navy hover:border-recovery-teal"
+                          ? "bg-deep-graphite border-deep-graphite text-canvas-warmth shadow-sm"
+                          : "bg-transparent border-line-gray text-headline-dark hover:border-deep-graphite"
                       }`}
                     >
                       {dur.label}
@@ -153,10 +153,10 @@ export default function InteractiveCalculator() {
               {/* Parameter 3: Pain Severity Slider */}
               <div>
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-caption font-bold text-trust-navy uppercase tracking-wider">
+                  <span className="text-xs font-bold text-headline-dark uppercase tracking-wider">
                     3. Estimated Pain & Mobility Interference
                   </span>
-                  <span className="text-caption font-bold text-medical-blue">
+                  <span className="text-xs font-bold text-deep-graphite">
                     Severity: {severity} / 10
                   </span>
                 </div>
@@ -166,9 +166,9 @@ export default function InteractiveCalculator() {
                   max="10"
                   value={severity}
                   onChange={(e) => setSeverity(parseInt(e.target.value))}
-                  className="w-full accent-medical-blue bg-soft-grey h-1.5 rounded-lg cursor-pointer"
+                  className="w-full accent-deep-graphite bg-canvas-warmth h-1.5 rounded-lg cursor-pointer"
                 />
-                <div className="flex justify-between mt-1 text-[10px] text-caption font-mono uppercase">
+                <div className="flex justify-between mt-1 text-[10px] text-muted-text font-semibold uppercase tracking-wider">
                   <span>Mild / Intermittent</span>
                   <span>Severe / Constant</span>
                 </div>
@@ -176,36 +176,36 @@ export default function InteractiveCalculator() {
 
               {/* Parameter 4: Clinic Selector */}
               <div>
-                <span className="text-caption font-bold text-trust-navy uppercase tracking-wider block mb-3">
+                <span className="text-xs font-bold text-headline-dark uppercase tracking-wider block mb-3">
                   4. Preferred Udaipur Clinic Location
                 </span>
                 <div className="grid grid-cols-2 gap-3">
                   <button
                     onClick={() => setSelectedClinic("mahe")}
-                    className={`px-4 py-3 border rounded-full flex items-center justify-center gap-2 text-sm font-semibold transition-all ${
+                    className={`px-4 py-3 border rounded-[12px] flex items-center justify-center gap-2 text-sm font-semibold transition-all ${
                       selectedClinic === "mahe"
-                        ? "border-recovery-teal bg-recovery-teal/5 text-trust-navy font-bold"
-                        : "border-border-grey text-trust-navy"
+                        ? "border-deep-graphite bg-canvas-warmth text-headline-dark font-bold"
+                        : "border-line-gray text-headline-dark"
                     }`}
                   >
-                    <MapPin size={14} className="text-recovery-teal" />
+                    <MapPin size={14} className="text-deep-graphite" />
                     <div>
-                      <span className="block text-xs text-left leading-none uppercase font-bold text-caption">Udaipur</span>
-                      <span className="block mt-0.5">Mahe Clinic</span>
+                      <span className="block text-[9px] text-left leading-none uppercase font-bold text-muted-text tracking-wider">Udaipur</span>
+                      <span className="block mt-1 text-xs">Mahe Clinic</span>
                     </div>
                   </button>
                   <button
                     onClick={() => setSelectedClinic("paras")}
-                    className={`px-4 py-3 border rounded-full flex items-center justify-center gap-2 text-sm font-semibold transition-all ${
+                    className={`px-4 py-3 border rounded-[12px] flex items-center justify-center gap-2 text-sm font-semibold transition-all ${
                       selectedClinic === "paras"
-                        ? "border-medical-blue bg-medical-blue/5 text-trust-navy font-bold"
-                        : "border-border-grey text-trust-navy"
+                        ? "border-deep-graphite bg-canvas-warmth text-headline-dark font-bold"
+                        : "border-line-gray text-headline-dark"
                     }`}
                   >
-                    <MapPin size={14} className="text-medical-blue" />
+                    <MapPin size={14} className="text-deep-graphite" />
                     <div>
-                      <span className="block text-xs text-left leading-none uppercase font-bold text-caption">Udaipur</span>
-                      <span className="block mt-0.5">Paras Hospital</span>
+                      <span className="block text-[9px] text-left leading-none uppercase font-bold text-muted-text tracking-wider">Udaipur</span>
+                      <span className="block mt-1 text-xs">Paras Hospital</span>
                     </div>
                   </button>
                 </div>
@@ -215,17 +215,17 @@ export default function InteractiveCalculator() {
           </div>
 
           {/* Diagnostic Results (Right Column) */}
-          <div className="lg:col-span-5 bg-[#140b00] border border-border-grey p-8 rounded-[6px] flex flex-col justify-between shadow-sm relative overflow-hidden">
+          <div className="lg:col-span-5 bg-surface-white border border-line-gray p-8 rounded-[25px] flex flex-col justify-between shadow-sm relative overflow-hidden">
             {/* Top clinical seal */}
-            <div className="pb-6 border-b border-border-grey flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-medical-blue/10 flex items-center justify-center text-medical-blue">
+            <div className="pb-6 border-b border-line-gray flex items-center gap-3">
+              <div className="w-10 h-10 rounded-[12px] bg-deep-graphite/5 flex items-center justify-center text-deep-graphite">
                 <ShieldCheck size={20} />
               </div>
               <div>
-                <span className="text-[10px] font-bold text-recovery-teal uppercase tracking-widest block">
+                <span className="text-[10px] font-bold text-muted-text uppercase tracking-widest block">
                   Suitability Report
                 </span>
-                <span className="text-sm font-bold text-trust-navy block">
+                <span className="text-sm font-bold text-headline-dark block">
                   Joint Diagnostics Audit Route
                 </span>
               </div>
@@ -233,7 +233,7 @@ export default function InteractiveCalculator() {
 
             {/* Dynamic Recommendation Panel */}
             <div className="py-6 flex-grow flex flex-col justify-center">
-              <span className="text-[10px] font-bold uppercase tracking-wider text-trust-navy/60 block">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-muted-text block">
                 Intake Assessment
               </span>
               <AnimatePresence mode="wait">
@@ -245,32 +245,32 @@ export default function InteractiveCalculator() {
                   transition={{ duration: 0.3 }}
                   className="mt-2"
                 >
-                  <h3 className="text-subheading font-bold text-medical-blue leading-tight">
+                  <h3 className="text-subheading font-bold text-deep-graphite leading-tight">
                     {advice.title}
                   </h3>
-                  <div className="mt-4 p-4 bg-soft-grey border border-border-grey rounded-lg">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-recovery-teal block">
+                  <div className="mt-4 p-4 bg-canvas-warmth border border-line-gray rounded-[12px]">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-headline-dark/70 block">
                       Recommended Protocol
                     </span>
-                    <p className="text-body text-sm mt-1 leading-relaxed">
+                    <p className="text-xs text-body-gray mt-1.5 leading-relaxed font-sans font-medium">
                       {advice.protocol}
                     </p>
                   </div>
                   <div className="mt-4 grid grid-cols-2 gap-4">
                     <div>
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-trust-navy/60 block">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-muted-text block">
                         Clinic Target
                       </span>
-                      <span className="text-xs font-bold text-trust-navy flex items-center gap-1 mt-1">
-                        <MapPin size={12} className="text-recovery-teal" />
+                      <span className="text-xs font-bold text-headline-dark flex items-center gap-1 mt-1">
+                        <MapPin size={12} className="text-deep-graphite" />
                         {selectedClinic === "mahe" ? "Mahe Clinic" : "Paras Hospital"}
                       </span>
                     </div>
                     <div>
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-trust-navy/60 block">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-muted-text block">
                         Booking Urgency
                       </span>
-                      <span className="text-xs font-bold text-medical-blue flex items-center gap-1 mt-1">
+                      <span className="text-xs font-bold text-deep-graphite flex items-center gap-1 mt-1">
                         <Clock size={12} />
                         {advice.timeframe}
                       </span>
@@ -283,7 +283,7 @@ export default function InteractiveCalculator() {
             {/* Direct Booking CTA */}
             <a
               href="#booking"
-              className="btn-primary w-full text-center py-3.5 font-bold uppercase tracking-wider text-xs shadow-md mt-6 rounded-lg flex items-center justify-center gap-2"
+              className="btn-primary w-full text-center py-3.5 font-bold uppercase tracking-wider text-xs shadow-md mt-6 rounded-[12px] flex items-center justify-center gap-2"
             >
               <Calendar size={14} />
               <span>Claim Free Joint Audit & Book Priority Slot</span>

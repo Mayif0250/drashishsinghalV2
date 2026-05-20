@@ -1,231 +1,251 @@
 @import "tailwindcss";
 
 @theme {
-  /* Midnight Desert Oasis Brand Palette mapping */
-  --color-medical-blue: #ffb442;   /* Amber Glow - primary active accent */
-  --color-trust-navy: #fff1e0;     /* Dawn Linen - high-contrast neutral text */
-  --color-recovery-teal: #ffb442;  /* Amber Glow - secondary highlights */
-  --color-soft-grey: #140b00;      /* Deep Onyx - surface level 1 containers */
-  --color-border-grey: #43392d;    /* Fossil Grey - subtle borders */
-  --color-success-green: #2CB1BC;  /* Recovery Teal for successful items */
+  /* Alveos One Style Colors */
+  --color-canvas-warmth: #fcf9f7;
+  --color-surface-white: #ffffff;
+  --color-deep-graphite: #05060b;
+  --color-text-black: #000000;
+  --color-headline-dark: #262628;
+  --color-body-gray: #575757;
+  --color-muted-text: #a5a5a5;
+  --color-line-gray: #d1cfcd;
+  --color-ghost-fill: #030f1c;
+
+  /* Descriptive mappings to prevent component compile breaks */
+  --color-medical-blue: #05060b;   /* Primary accent -> Deep Graphite */
+  --color-trust-navy: #000000;     /* Navy text -> Text Black */
+  --color-recovery-teal: #262628;  /* Accent titles -> Headline Dark */
+  --color-soft-grey: #fcf9f7;      /* Section base -> Canvas Warmth */
+  --color-border-grey: #d1cfcd;    /* Subtle dividers -> Line Gray */
+  --color-success-green: #262628;  /* Solid items -> Headline Dark */
 
   /* Typography Fonts */
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-poppins), system-ui, sans-serif;
+  --font-display: var(--font-hanken-grotesk), system-ui, sans-serif;
+  --font-mono: var(--font-sf-mono), monospace;
 }
 
 :root {
   /* Layout Metrics */
-  --section-gap: 52px;
-  --card-padding: 12px;
-  --element-gap: 12px;
+  --section-gap: 50px;
+  --card-padding: 20px;
+  --element-gap: 10px;
 
   /* Custom Color Properties */
-  --color-deep-onyx: #140b00;
-  --color-dawn-linen: #fff1e0;
-  --color-amber-glow: #ffb442;
-  --color-abyss: #0b0600;
-  --color-fossil-grey: #43392d;
-  --color-desert-stone: #4f4538;
-  --color-pale-ash: #85796c;
+  --color-canvas-warmth: #fcf9f7;
+  --color-surface-white: #ffffff;
+  --color-deep-graphite: #05060b;
+  --color-text-black: #000000;
+  --color-headline-dark: #262628;
+  --color-body-gray: #575757;
+  --color-muted-text: #a5a5a5;
+  --color-line-gray: #d1cfcd;
+  --color-ghost-fill: #030f1c;
 }
 
-/* Global Reset and Oasis Dark Aesthetics */
+/* Global Reset and Oasis Light Aesthetics */
 html {
   scroll-behavior: smooth;
-  background-color: #0b0600; /* Abyss - deepest base tone */
-  color: #fff1e0;            /* Dawn Linen - warm body text */
+  background-color: #fcf9f7; /* Canvas Warmth base */
+  color: #575757;            /* Body Gray text */
 }
 
 body {
-  background-color: #0b0600;
-  color: #fff1e0;
+  background-color: #fcf9f7;
+  color: #575757;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
 }
 
-/* Custom Compact Display Typography scale per DESIGN.md */
+/* Alveos One Custom Compact Display Typography scale */
 .text-display {
   font-family: var(--font-display);
-  font-size: 81px;
-  line-height: 0.8;
+  font-size: 52px;
+  line-height: 1.1;
   font-weight: 500;
-  letter-spacing: -0.014em; /* Impactful compact letter spacing */
-  color: #fff1e0;
+  color: #262628;
 }
 
 .text-hero {
   font-family: var(--font-display);
-  font-size: 55px;
-  line-height: 1.1;
+  font-size: 38px;
+  line-height: 1.2;
   font-weight: 500;
-  letter-spacing: -0.008em;
-  color: #fff1e0;
+  color: #262628;
 }
 
 .text-section {
   font-family: var(--font-display);
-  font-size: 35px;
+  font-size: 28px;
   line-height: 1.2;
-  font-weight: 500;
-  letter-spacing: -0.006em;
-  color: #fff1e0;
+  font-weight: 600;
+  color: #262628;
 }
 
 .text-subheading {
   font-family: var(--font-display);
-  font-size: 22px;
-  line-height: 1.43;
+  font-size: 18px;
+  line-height: 1.4;
   font-weight: 500;
-  letter-spacing: -0.002em;
-  color: #fff1e0;
+  color: #262628;
 }
 
 .text-body {
   font-family: var(--font-sans);
-  font-size: 14px;
-  line-height: 1.5;
+  font-size: 16px;
+  line-height: 1.4;
   font-weight: 400;
-  color: #85796c; /* Pale Ash - muted body text */
+  color: #575757; /* Body Gray */
 }
 
 .text-caption {
   font-family: var(--font-sans);
   font-size: 10px;
-  line-height: 1.5;
-  font-weight: 500;
-  letter-spacing: 0.1px;
-  color: #ffb442; /* Highlight captions with Amber Glow */
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: 4.44px;
+  text-transform: uppercase;
+  color: #a5a5a5; /* Muted Text */
 }
 
 /* Responsive Scaling for smaller screens */
 @media (max-width: 1024px) {
   .text-display {
-    font-size: 55px;
-    line-height: 1.0;
-  }
-  .text-hero {
     font-size: 38px;
     line-height: 1.15;
   }
+  .text-hero {
+    font-size: 28px;
+    line-height: 1.2;
+  }
   .text-section {
-    font-size: 29px;
+    font-size: 24px;
   }
 }
 
 @media (max-width: 640px) {
   .text-display {
-    font-size: 35px;
-    line-height: 1.1;
-  }
-  .text-hero {
-    font-size: 29px;
+    font-size: 28px;
     line-height: 1.2;
   }
+  .text-hero {
+    font-size: 24px;
+    line-height: 1.25;
+  }
   .text-section {
-    font-size: 23px;
+    font-size: 20px;
   }
   .text-subheading {
-    font-size: 19px;
+    font-size: 16px;
   }
 }
 
 /* Scrollbar styling */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0b0600; /* Abyss */
+  background: #fcf9f7; /* Canvas Warmth */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #43392d; /* Fossil Grey */
+  background: #d1cfcd; /* Line Gray */
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #ffb442; /* Amber Glow hover toggle */
+  background: #05060b; /* Deep Graphite */
 }
 
-/* 1296px Pill Button UI Components per DESIGN.md */
+/* Filled Primary Button */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #ffb442; /* Amber Glow */
-  color: #140b00;            /* Deep Onyx */
-  font-family: var(--font-display);
-  font-weight: 500;
+  background-color: #05060b; /* Deep Graphite */
+  color: #fcf9f7;            /* Canvas Warmth */
+  font-family: var(--font-sans);
+  font-weight: 600;
   font-size: 12px;
-  padding: 9px 15px;
-  border-radius: 1296px;     /* Pill shape border radius */
-  border: 1px solid #ffb442;
-  box-shadow: none;          /* Flat minimal surfaces */
+  letter-spacing: 0.444em;
+  text-transform: uppercase;
+  padding: 14px 30px;
+  border-radius: 12px;     /* Rounded 12px buttons per Alveos tokens */
+  border: 1px solid #05060b;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 1px 5px 0px;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-primary:hover {
-  background-color: #fff1e0; /* Dawn Linen */
-  border-color: #fff1e0;
+  background-color: #ffffff; /* Surface White */
+  color: #05060b;            /* Deep Graphite */
+  border-color: #d1cfcd;     /* Line Gray */
   transform: translateY(-1px);
 }
 
+/* Ghost Navigation Button */
 .btn-secondary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   background-color: transparent;
-  color: #ffb442;
-  font-family: var(--font-display);
-  font-weight: 500;
+  color: #000000;            /* Text Black */
+  font-family: var(--font-sans);
+  font-weight: 600;
   font-size: 12px;
-  padding: 9px 15px;
-  border-radius: 1296px;
-  border: 1px solid #43392d; /* Fossil Grey */
+  letter-spacing: 0.444em;
+  text-transform: uppercase;
+  padding: 7px 20px;
+  border-radius: 12px;
+  border: 1px solid #d1cfcd; /* Line Gray border */
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-secondary:hover {
-  background-color: rgba(255, 180, 66, 0.05);
-  border-color: #ffb442;
+  background-color: rgba(5, 6, 11, 0.05); /* Very subtle Graphite ghost tint */
+  border-color: #05060b;
   transform: translateY(-1px);
 }
 
-/* Strict 6px Card Radius UI Containers per DESIGN.md */
+/* Simple Content Card: Radius 25px, no shadow, White bg */
 .card-clinical {
-  background-color: #140b00; /* Deep Onyx */
-  border: 1px solid #43392d; /* Fossil Grey */
-  border-radius: 6px;        /* Strict 6px border radius */
-  padding: 12px;             /* 12px card padding */
-  box-shadow: none;          /* Flat surfaces */
+  background-color: #ffffff; /* Surface White */
+  border: 1px solid #d1cfcd; /* Line Gray */
+  border-radius: 25px;        /* Generous 25px cards per Alveos tokens */
+  padding: 20px 25px;         /* Comfortable card padding */
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 10px 0px; /* Subtle shadow md */
   transition: all 0.3s ease;
 }
 
 .card-clinical:hover {
-  border-color: #ffb442; /* Highlight outline on hover */
+  border-color: #05060b; /* Deep Graphite outline on hover */
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 8px 30px 0px, rgba(0, 0, 0, 0.05) 0px 2px 8px 0px; /* Elevate on hover */
 }
 
-/* Clean Custom Global Form overrides to support Pill Fills on dark mode */
+/* Clean Custom Global Form overrides to support Alveos warm gray mode */
 input[type="text"],
 input[type="tel"],
 input[type="date"],
 select {
-  background-color: transparent !important;
-  color: #fff1e0 !important;
-  border: 1px solid rgba(255, 241, 224, 0.25) !important;
-  border-radius: 1296px !important;
-  padding: 10px 24px !important;
+  background-color: #ffffff !important; /* Surface White */
+  color: #000000 !important;             /* Text Black */
+  border: 1px solid #d1cfcd !important;  /* Line Gray border */
+  border-radius: 12px !important;        /* 12px buttons and input corners */
+  padding: 12px 20px !important;
   font-size: 14px !important;
   outline: none !important;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 1px 5px 0px !important;
 }
 
 input[type="text"]:focus,
 input[type="tel"]:focus,
 input[type="date"]:focus,
 select:focus {
-  border-color: #ffb442 !important;
+  border-color: #05060b !important; /* Deep Graphite */
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 10px 0px !important;
 }

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Poppins } from "next/font/google";
+import { Inter, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -7,8 +7,8 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const poppins = Poppins({
-  variable: "--font-poppins",
+const hankenGrotesk = Hanken_Grotesk({
+  variable: "--font-hanken-grotesk",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
@@ -28,10 +28,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${poppins.variable} h-full antialiased`}
+      className={`${inter.variable} ${hankenGrotesk.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-[#0b0600] text-[#fff1e0]">{children}</body>
+      <body className="min-h-full flex flex-col bg-[#fcf9f7] text-[#575757]">{children}</body>
     </html>
   );
 }

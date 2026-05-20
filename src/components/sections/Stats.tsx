@@ -32,18 +32,18 @@ export default function Stats() {
   ];
 
   return (
-    <section className="relative py-20 bg-soft-grey border-y border-border-grey overflow-hidden">
+    <section className="relative py-20 bg-canvas-warmth border-y border-line-gray overflow-hidden">
       <div className="max-w-[94%] mx-auto px-4 md:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-caption font-bold uppercase tracking-wider text-recovery-teal">
+          <span className="text-caption block text-headline-dark/70 font-semibold mb-2">
             Trust & Medical Excellence
           </span>
-          <h2 className="text-section font-bold tracking-tight text-trust-navy mt-3">
+          <h2 className="text-section font-bold tracking-tight text-headline-dark mt-3">
             Why Patients Choose Dr. Ashish Singhal
           </h2>
-          <p className="text-body mt-4 leading-relaxed">
+          <p className="text-body mt-4 leading-relaxed text-body-gray">
             Every clinical procedure is anchored in patient safety, absolute structural precision, and advanced orthopedic technology to support faster post-op recovery.
           </p>
         </div>
@@ -57,25 +57,25 @@ export default function Stats() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="card-clinical flex flex-col justify-between min-h-[220px]"
+              className="card-clinical flex flex-col justify-between min-h-[240px]"
             >
               <div className="flex items-center justify-between">
-                <div className="w-10 h-10 rounded-lg bg-medical-blue/10 flex items-center justify-center text-medical-blue">
+                <div className="w-10 h-10 rounded-[12px] bg-deep-graphite/5 flex items-center justify-center text-deep-graphite shadow-sm">
                   <met.icon size={20} strokeWidth={2.5} />
                 </div>
-                <span className="text-caption font-mono uppercase text-recovery-teal">
+                <span className="text-caption font-semibold text-muted-text">
                   Metric 0{idx + 1}
                 </span>
               </div>
 
               <div className="mt-6">
-                <span className="text-caption uppercase tracking-wider text-trust-navy block">
+                <span className="text-xs uppercase tracking-wider font-bold text-headline-dark block">
                   {met.title}
                 </span>
-                <span className="text-display text-medical-blue block font-bold mt-1 font-display tracking-tight leading-none">
+                <span className="text-[38px] text-deep-graphite block font-display font-medium mt-1 tracking-tight leading-none">
                   {met.value}
                 </span>
-                <p className="text-caption text-body block mt-3">
+                <p className="text-xs text-body-gray mt-3 leading-relaxed">
                   {met.desc}
                 </p>
               </div>

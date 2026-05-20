@@ -14,9 +14,9 @@ export default function FAQ() {
 
   if (!mounted) {
     return (
-      <section id="faq" className="relative py-24 bg-[#0b0600] border-t border-border-grey overflow-hidden">
+      <section id="faq" className="relative py-24 bg-surface-white border-t border-line-gray overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <span className="text-caption text-body animate-pulse">Loading FAQ System...</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-muted-text animate-pulse">Loading FAQ System...</span>
         </div>
       </section>
     );
@@ -46,19 +46,19 @@ export default function FAQ() {
   ];
 
   return (
-    <section id="faq" className="relative py-24 bg-[#0b0600] border-t border-border-grey overflow-hidden">
+    <section id="faq" className="relative py-24 bg-surface-white border-t border-line-gray overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           
           {/* Header (Left Column) */}
           <div className="lg:col-span-4 flex flex-col justify-start">
-            <span className="text-caption font-bold uppercase tracking-wider text-recovery-teal flex items-center gap-1.5">
-              <HelpCircle size={14} /> Reassuring Guidance
+            <span className="text-caption block text-headline-dark/70 font-semibold mb-2">
+              <HelpCircle size={14} className="inline mr-1" /> Reassuring Guidance
             </span>
-            <h2 className="text-section font-bold text-trust-navy mt-4 tracking-tight leading-tight">
+            <h2 className="text-section font-bold text-headline-dark mt-4 tracking-tight leading-tight">
               Frequently Asked Orthopedic Questions
             </h2>
-            <p className="text-body mt-4 leading-relaxed">
+            <p className="text-body mt-4 leading-relaxed text-body-gray">
               Find answers to advanced robotic joint replacements, recovery periods, keyhole access benefits, and scheduling.
             </p>
           </div>
@@ -70,20 +70,20 @@ export default function FAQ() {
               return (
                 <div
                   key={idx}
-                  className="bg-[#140b00] border border-border-grey rounded-[6px] overflow-hidden transition-all hover:border-recovery-teal hover:shadow-sm"
+                  className="bg-canvas-warmth border border-line-gray rounded-[12px] overflow-hidden transition-all hover:border-deep-graphite hover:shadow-sm"
                 >
                   {/* Accordion Trigger */}
                   <button
                     onClick={() => setOpenIdx(isOpen ? null : idx)}
                     className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none"
                   >
-                    <span className="text-sm font-bold text-trust-navy pr-6">
+                    <span className="text-sm font-semibold text-headline-dark pr-6">
                       {faq.q}
                     </span>
-                    <div className={`p-1.5 rounded-lg border text-trust-navy transition-all duration-300 ${
+                    <div className={`p-1.5 rounded-[12px] border text-headline-dark transition-all duration-300 ${
                       isOpen
-                        ? "bg-medical-blue/10 border-medical-blue/30 text-medical-blue rotate-180"
-                        : "bg-soft-grey border-border-grey"
+                        ? "bg-deep-graphite/5 border-deep-graphite/30 text-deep-graphite rotate-180"
+                        : "bg-surface-white border-line-gray"
                     }`}>
                       {isOpen ? <Minus size={14} /> : <Plus size={14} />}
                     </div>
@@ -98,7 +98,7 @@ export default function FAQ() {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                       >
-                        <div className="px-6 pb-6 pt-1 text-sm text-body leading-relaxed border-t border-border-grey/30">
+                        <div className="px-6 pb-6 pt-2 text-xs font-semibold text-body-gray leading-relaxed border-t border-line-gray/30">
                           {faq.a}
                         </div>
                       </motion.div>
