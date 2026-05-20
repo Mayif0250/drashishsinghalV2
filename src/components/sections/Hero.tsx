@@ -1,127 +1,133 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowUpRight, User, Cpu, PhoneCall } from "lucide-react";
 import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-abyss pt-24 pb-16">
-      {/* Background Image Layer with Dark Overlays */}
-      <div className="absolute inset-0 z-0">
+    <section className="relative min-h-screen flex flex-col justify-between bg-[#0b0600] pt-28 pb-4 overflow-hidden">
+      {/* Background Image with Dr. Singhal's Actual Photo in Crisp Natural Colors */}
+      <div className="absolute inset-0 z-0 bg-[#0b0600]">
         <Image
-          src="/oasis_landscape.png"
-          alt="Midnight Desert Oasis"
+          src="/dr_singhal_original.png"
+          alt="Dr. Ashish Singhal - Advanced Orthopedics"
           fill
           priority
-          className="object-cover object-center opacity-40 desaturate-[40%] brightness-[70%]"
+          className="object-cover object-right opacity-100"
         />
-        {/* Amber Glow overlay with design token gradient */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(20,11,0,0.4)_0%,rgba(11,6,0,0.95)_80%)]" />
-        
-        {/* Soft decorative light highlights */}
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-amber-glow/5 rounded-full blur-[140px] pointer-events-none" />
+        {/* Multidirectional gradient overlays for seamless visual blending and high text/navbar contrast */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0b0600] via-[#0b0600]/85 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0b0600] via-[#0b0600]/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0b0600]/60 via-transparent to-transparent pointer-events-none" />
       </div>
 
-      {/* Grid Pattern overlay */}
-      <div className="absolute inset-0 grid-bg-oasis opacity-30 z-1 pointer-events-none" />
+      <div className="max-w-[94%] mx-auto px-4 md:px-8 w-full relative z-10 flex-grow flex items-center pt-8">
+        <div className="max-w-3xl text-left">
+          {/* Main Title structured on exactly 2 lines for wide screens */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl md:text-[62px] font-sans font-medium text-white tracking-tight leading-[1.08] lg:max-w-4xl"
+          >
+            Joint wear is inevitable, <br className="hidden md:inline" />
+            feeling young is optional
+          </motion.h1>
 
-      {/* Main Content Area */}
-      <div className="relative z-10 w-full max-w-5xl px-6 flex flex-col items-center text-center">
-        {/* Upper Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-deep-onyx/80 border border-fossil-grey backdrop-blur-sm mb-8"
-        >
-          <Sparkles size={12} className="text-amber-glow" />
-          <span className="text-caption uppercase font-medium tracking-wider text-dawn-linen">
-            Cellular Longevity & Vitality Oasis
-          </span>
-        </motion.div>
+          {/* Subtitle matching ABL body style */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mt-6 text-sm md:text-base text-white/80 max-w-xl leading-relaxed font-sans font-normal"
+          >
+            Physician-led robotic joint replacements and advanced orthopedic care for Udaipur patients, focused on active recovery, strength, and pain-free mobility.
+          </motion.p>
 
-        {/* Display Headline */}
-        <motion.h1
-          initial={{ opacity: 0, y: 25 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-          className="text-display tracking-[-0.014em] text-dawn-linen max-w-4xl"
-        >
-          A REVOLUTION IN <br />
-          <span className="text-amber-glow font-medium">BIOLOGICAL AGE</span>
-        </motion.h1>
-
-        {/* Explanatory Subtext */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-          className="mt-8 text-body text-pale-ash max-w-xl leading-relaxed"
-        >
-          A Better Lou establishes an authoritative biological wellness architecture. Utilizing deep-cell data and circadian science to halt—and reverse—your physiological clock.
-        </motion.p>
-
-        {/* Action Button Group */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
-          className="mt-10 flex flex-col sm:flex-row items-center gap-3"
-        >
-          <div className="flex items-center gap-2 bg-deep-onyx/40 p-1.5 rounded-full border border-dark-charcoal backdrop-blur-sm">
-            <a href="#calculator" className="btn-primary flex items-center gap-2">
-              <span>Begin Audit</span>
+          {/* Action Button Group matching ABL dual shapes */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-8 flex items-center gap-3"
+          >
+            <a
+              href="#booking"
+              className="px-6 py-3 bg-[#ffb442] hover:bg-[#fff1e0] text-[#140b00] rounded-full text-xs font-semibold uppercase tracking-wider transition-all shadow-sm flex items-center justify-center"
+            >
+              Get Started
             </a>
-            <a href="#features" className="btn-icon">
-              <ArrowRight size={16} strokeWidth={2.5} />
+            <a
+              href="#booking"
+              className="w-10 h-10 bg-[#ffb442] hover:bg-[#fff1e0] text-[#140b00] rounded-full flex items-center justify-center transition-all shadow-sm"
+            >
+              <ArrowUpRight size={16} />
             </a>
-          </div>
-          <a href="#metrics" className="btn-secondary">
-            Explore Science
-          </a>
-        </motion.div>
+          </motion.div>
+        </div>
+      </div>
 
-        {/* Trust Metrics */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.2, delay: 0.6 }}
-          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 pt-8 border-t border-dark-charcoal w-full max-w-4xl text-left"
-        >
-          <div>
-            <div className="text-caption uppercase tracking-wider text-pale-ash mb-1">
-              clinical trials
-            </div>
-            <div className="text-subheading font-medium text-dawn-linen">
-              100% Retrospective
-            </div>
-          </div>
-          <div>
-            <div className="text-caption uppercase tracking-wider text-pale-ash mb-1">
-              average age reversal
-            </div>
-            <div className="text-subheading font-medium text-amber-glow">
-              -4.8 Years
+      {/* Bottom Bar Info Grid - Exact replica of ABL style */}
+      <div className="w-full relative z-10 mt-6 border-t border-[#43392d]">
+        <div className="max-w-[94%] mx-auto px-4 md:px-8 pt-6 pb-2">
+          
+          {/* Divider Label Header */}
+          <div className="flex items-center justify-between mb-6">
+            <span className="text-xs font-semibold text-[#fff1e0]/90 tracking-wide font-sans">
+              Built on science. Focused on recovery.
+            </span>
+            <div className="flex items-center gap-1.5">
+              <div className="w-2.5 h-2.5 rounded-full bg-[#ffb442]/30" />
+              <div className="w-2.5 h-2.5 rounded-full bg-[#ffb442]" />
             </div>
           </div>
-          <div>
-            <div className="text-caption uppercase tracking-wider text-pale-ash mb-1">
-              patient compliance
+
+          {/* Three-Column Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            {/* Col 1 */}
+            <div className="flex flex-col items-start text-left md:pr-8">
+              <div className="w-8 h-8 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-white mb-4">
+                <User size={14} />
+              </div>
+              <h3 className="text-sm font-bold uppercase tracking-wider text-[#ffb442]">
+                Personalized care
+              </h3>
+              <p className="text-xs text-white/70 mt-2 leading-relaxed font-sans font-normal">
+                A recovery program built entirely around your biology and functional joint goals.
+              </p>
             </div>
-            <div className="text-subheading font-medium text-dawn-linen">
-              98.2% Seamless
+
+            {/* Col 2 */}
+            <div className="flex flex-col items-start text-left md:px-8 md:border-x border-[#43392d]">
+              <div className="w-8 h-8 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-white mb-4">
+                <Cpu size={14} />
+              </div>
+              <h3 className="text-sm font-bold uppercase tracking-wider text-[#ffb442]">
+                Science-driven results
+              </h3>
+              <p className="text-xs text-white/70 mt-2 leading-relaxed font-sans font-normal">
+                Proven robotic-assisted methods to restore native joint mechanics, longevity, and active mobility.
+              </p>
             </div>
+
+            {/* Col 3 */}
+            <div className="flex flex-col items-start text-left md:pl-8">
+              <div className="w-8 h-8 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-white mb-4">
+                <PhoneCall size={14} />
+              </div>
+              <h3 className="text-sm font-bold uppercase tracking-wider text-[#ffb442]">
+                Confidential support
+              </h3>
+              <p className="text-xs text-white/70 mt-2 leading-relaxed font-sans font-normal">
+                A dedicated surgical and rehabilitation team that's always within clear coordinate reach.
+              </p>
+            </div>
+
           </div>
-          <div>
-            <div className="text-caption uppercase tracking-wider text-pale-ash mb-1">
-              medical oversight
-            </div>
-            <div className="text-subheading font-medium text-dawn-linen">
-              Elite MD Audited
-            </div>
-          </div>
-        </motion.div>
+
+        </div>
       </div>
     </section>
   );

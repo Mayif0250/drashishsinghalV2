@@ -1,217 +1,297 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, Brain, Dumbbell, Flame, Apple } from "lucide-react";
+import { Stethoscope, CheckSquare, ShieldCheck, MapPin, Calendar, Clock } from "lucide-react";
 
 export default function InteractiveCalculator() {
-  const [sleep, setSleep] = useState(7); // hours
-  const [activity, setActivity] = useState(3); // days/week
-  const [stress, setStress] = useState(2); // 1 = low, 2 = moderate, 3 = high
-  const [nutrition, setNutrition] = useState(true); // true = anti-inflammatory, false = standard
+  const [mounted, setMounted] = useState(false);
+  const [symptom, setSymptom] = useState("knee_pain"); // knee_pain, hip_stiffness, sports_injury, ligament_tear
+  const [duration, setDuration] = useState(2); // 1 = < 1 month, 2 = 1-6 months, 3 = > 6 months
+  const [severity, setSeverity] = useState(5); // 1 to 10
+  const [selectedClinic, setSelectedClinic] = useState("mahe"); // mahe or paras
 
-  // Epigenetic mock calculation based on real longevity study ratios
-  const baseAgeReversal = -1.2;
-  const sleepFactor = (sleep - 6) * -0.4;
-  const activityFactor = activity * -0.5;
-  const stressFactor = stress === 1 ? -0.8 : stress === 2 ? 0 : 0.9;
-  const nutritionFactor = nutrition ? -1.5 : 0.5;
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
-  const totalAgeDelta = +(baseAgeReversal + sleepFactor + activityFactor + stressFactor + nutritionFactor).toFixed(1);
-  const score = Math.min(100, Math.max(0, Math.round(75 + totalAgeDelta * -4.5)));
+  // Clinical mock advice logic based on standard patient intake guidelines
+  const getRecommendation = () => {
+    if (symptom === "sports_injury" || symptom === "ligament_tear") {
+      return {
+        title: "Arthroscopy & Sports Medicine Audit Recommended",
+        urgency: "Moderate to High",
+        protocol: "Minimally invasive keyhole diagnosis (Arthroscopy) to audit ligament fiber tear integrity and restore muscle mobility.",
+        timeframe: "Within 5-7 days",
+      };
+    }
+    
+    if (symptom === "knee_pain" || symptom === "hip_stiffness") {
+      if (severity >= 7 || duration === 3) {
+        return {
+          title: "Robotic-Assisted Joint Replacement Assessment",
+          urgency: "High Clinical Vitals Audit",
+          protocol: "Dr. Ashish Singhal's custom robotic-assisted mapping, sparing healthy bone tissue and evaluating implant placement metrics.",
+          timeframe: "Within 2-3 days",
+        };
+      }
+      return {
+        title: "Conservative Orthopedic Joint Care Audit",
+        urgency: "Low to Moderate",
+        protocol: "Non-surgical joint lubrication, personalized active physical therapy, and targeted anti-inflammatory assessments.",
+        timeframe: "Within 7-10 days",
+      };
+    }
+
+    return {
+      title: "Comprehensive Orthopedic Consultation",
+      urgency: "Moderate",
+      protocol: "Physical diagnostic analysis and digital joint mapping under MS (Ortho) specialist guidance.",
+      timeframe: "Within 7 days",
+    };
+  };
+
+  const advice = getRecommendation();
+
+  if (!mounted) {
+    return (
+      <section id="calculator" className="relative py-24 bg-soft-grey border-y border-border-grey overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 text-center py-12">
+          <div className="animate-pulse flex flex-col items-center gap-4">
+            <div className="w-12 h-12 rounded-full bg-medical-blue/10 flex items-center justify-center text-medical-blue">
+              <Stethoscope size={24} />
+            </div>
+            <span className="text-sm font-bold text-trust-navy uppercase tracking-wider">
+              Loading Intake System...
+            </span>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
-    <section id="calculator" className="relative py-24 bg-abyss border-t border-dark-charcoal overflow-hidden">
-      {/* Decorative ambient backdrop glows */}
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-amber-glow/5 rounded-full blur-[140px] pointer-events-none" />
+    <section id="calculator" className="relative py-24 bg-soft-grey border-y border-border-grey overflow-hidden">
+      {/* Soft circular background visuals */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-medical-blue/5 blur-[120px] pointer-events-none" />
 
-      <div className="max-w-5xl mx-auto px-6">
-        <div className="max-w-xl mb-16 text-center mx-auto">
-          <span className="text-caption uppercase tracking-wider text-amber-glow font-medium inline-flex items-center gap-1.5 justify-center">
-            <Sparkles size={12} /> Live Biological Projection
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        
+        {/* Header */}
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <span className="text-caption font-bold uppercase tracking-wider text-recovery-teal flex items-center gap-1.5 justify-center">
+            <Stethoscope size={14} /> Interactive Diagnostic Intake
           </span>
-          <h2 className="text-heading-lg text-dawn-linen mt-4 tracking-[-0.008em]">
-            ESTIMATE YOUR BIO-AGE POTENTIAL
+          <h2 className="text-section font-bold tracking-tight text-trust-navy mt-3">
+            Epigenetic Joint & Mobility Diagnostic Audit
           </h2>
-          <p className="text-body text-pale-ash mt-4 leading-relaxed">
-            Adjust your daily biological parameters below to see how optimizing cellular compliance can affect your epigenetic rate of cellular decay.
+          <p className="text-body mt-4 leading-relaxed">
+            Select your main orthopedic indicators below to receive an outcome-focused treatment recommendation and route directly to Udaipur clinic schedules.
           </p>
         </div>
 
-        {/* Calculator Main Grid */}
+        {/* Diagnostic Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-          {/* Controls Panel (Left) */}
-          <div className="lg:col-span-7 bg-deep-onyx border border-dark-charcoal p-8 rounded-md flex flex-col justify-between">
+          
+          {/* Intake Controls (Left Column) */}
+          <div className="lg:col-span-7 bg-[#140b00] border border-border-grey p-8 rounded-[6px] flex flex-col justify-between shadow-sm">
             <div className="space-y-8">
-              {/* Parameter 1: Sleep */}
+              
+              {/* Parameter 1: Symptom Selector */}
               <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-caption text-dawn-linen font-medium uppercase tracking-wider flex items-center gap-2">
-                    <Brain size={14} className="text-amber-glow" /> Sleep Architecture
-                  </span>
-                  <span className="text-caption font-mono text-amber-glow font-medium">
-                    {sleep} Hours / Night
-                  </span>
-                </div>
-                <input
-                  type="range"
-                  min="5"
-                  max="9"
-                  step="0.5"
-                  value={sleep}
-                  onChange={(e) => setSleep(parseFloat(e.target.value))}
-                  className="w-full accent-amber-glow cursor-pointer bg-dark-charcoal h-1 rounded"
-                />
-                <div className="flex justify-between mt-1 text-[10px] text-pale-ash font-mono uppercase">
-                  <span>Incomplete rest</span>
-                  <span>Optimal Circadian REST</span>
-                </div>
-              </div>
-
-              {/* Parameter 2: Activity */}
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-caption text-dawn-linen font-medium uppercase tracking-wider flex items-center gap-2">
-                    <Dumbbell size={14} className="text-amber-glow" /> Epigenetic Stimulation
-                  </span>
-                  <span className="text-caption font-mono text-amber-glow font-medium">
-                    {activity} Days / Week
-                  </span>
-                </div>
-                <input
-                  type="range"
-                  min="0"
-                  max="6"
-                  step="1"
-                  value={activity}
-                  onChange={(e) => setActivity(parseInt(e.target.value))}
-                  className="w-full accent-amber-glow cursor-pointer bg-dark-charcoal h-1 rounded"
-                />
-                <div className="flex justify-between mt-1 text-[10px] text-pale-ash font-mono uppercase">
-                  <span>Sedentary state</span>
-                  <span>High mitochondrial trigger</span>
-                </div>
-              </div>
-
-              {/* Parameter 3: Stress */}
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-caption text-dawn-linen font-medium uppercase tracking-wider flex items-center gap-2">
-                    <Flame size={14} className="text-amber-glow" /> Cortisol & Stress Balance
-                  </span>
-                  <span className="text-caption font-mono text-amber-glow font-medium uppercase">
-                    {stress === 1 ? "Balanced / low" : stress === 2 ? "Moderate" : "Elevated / chronic"}
-                  </span>
-                </div>
-                <div className="grid grid-cols-3 gap-2">
-                  {[1, 2, 3].map((val) => (
+                <span className="text-caption font-bold text-trust-navy uppercase tracking-wider block mb-3">
+                  1. Select Primary Orthopedic Joint Indicator
+                </span>
+                <div className="grid grid-cols-2 gap-3">
+                  {[
+                    { id: "knee_pain", label: "Chronic Knee Pain" },
+                    { id: "hip_stiffness", label: "Hip Joint Stiffness" },
+                    { id: "sports_injury", label: "Sports Injury" },
+                    { id: "ligament_tear", label: "Suspected Ligament Tear" },
+                  ].map((sym) => (
                     <button
-                      key={val}
-                      onClick={() => setStress(val)}
-                      className={`py-2 text-caption uppercase tracking-wider border font-medium rounded-full transition-all ${
-                        stress === val
-                          ? "bg-amber-glow border-amber-glow text-deep-onyx"
-                          : "bg-transparent border-fossil-grey text-pale-ash hover:border-dawn-linen"
+                      key={sym.id}
+                      onClick={() => setSymptom(sym.id)}
+                      className={`px-4 py-3 rounded-full border text-sm font-semibold transition-all ${
+                        symptom === sym.id
+                          ? "bg-medical-blue border-medical-blue text-white shadow-md shadow-medical-blue/20"
+                          : "bg-transparent border-border-grey text-trust-navy hover:border-medical-blue"
                       }`}
                     >
-                      {val === 1 ? "Calm" : val === 2 ? "Neutral" : "Stressed"}
+                      {sym.label}
                     </button>
                   ))}
                 </div>
               </div>
 
-              {/* Parameter 4: Nutrition */}
-              <div className="pt-2">
-                <div className="flex items-center justify-between">
-                  <span className="text-caption text-dawn-linen font-medium uppercase tracking-wider flex items-center gap-2">
-                    <Apple size={14} className="text-amber-glow" /> Anti-inflammatory Nutrition
+              {/* Parameter 2: Duration Selector */}
+              <div>
+                <span className="text-caption font-bold text-trust-navy uppercase tracking-wider block mb-3">
+                  2. Duration of Indicators
+                </span>
+                <div className="grid grid-cols-3 gap-2">
+                  {[
+                    { val: 1, label: "< 1 Month" },
+                    { val: 2, label: "1 to 6 Months" },
+                    { val: 3, label: "> 6 Months" },
+                  ].map((dur) => (
+                    <button
+                      key={dur.val}
+                      onClick={() => setDuration(dur.val)}
+                      className={`py-2 text-xs font-bold uppercase tracking-wider border rounded-full transition-all ${
+                        duration === dur.val
+                          ? "bg-recovery-teal border-recovery-teal text-white shadow-md"
+                          : "bg-transparent border-border-grey text-trust-navy hover:border-recovery-teal"
+                      }`}
+                    >
+                      {dur.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Parameter 3: Pain Severity Slider */}
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-caption font-bold text-trust-navy uppercase tracking-wider">
+                    3. Estimated Pain & Mobility Interference
                   </span>
+                  <span className="text-caption font-bold text-medical-blue">
+                    Severity: {severity} / 10
+                  </span>
+                </div>
+                <input
+                  type="range"
+                  min="1"
+                  max="10"
+                  value={severity}
+                  onChange={(e) => setSeverity(parseInt(e.target.value))}
+                  className="w-full accent-medical-blue bg-soft-grey h-1.5 rounded-lg cursor-pointer"
+                />
+                <div className="flex justify-between mt-1 text-[10px] text-caption font-mono uppercase">
+                  <span>Mild / Intermittent</span>
+                  <span>Severe / Constant</span>
+                </div>
+              </div>
+
+              {/* Parameter 4: Clinic Selector */}
+              <div>
+                <span className="text-caption font-bold text-trust-navy uppercase tracking-wider block mb-3">
+                  4. Preferred Udaipur Clinic Location
+                </span>
+                <div className="grid grid-cols-2 gap-3">
                   <button
-                    onClick={() => setNutrition(!nutrition)}
-                    className={`relative w-12 h-6 rounded-full transition-colors duration-300 focus:outline-none ${
-                      nutrition ? "bg-amber-glow" : "bg-dark-charcoal border border-fossil-grey"
+                    onClick={() => setSelectedClinic("mahe")}
+                    className={`px-4 py-3 border rounded-full flex items-center justify-center gap-2 text-sm font-semibold transition-all ${
+                      selectedClinic === "mahe"
+                        ? "border-recovery-teal bg-recovery-teal/5 text-trust-navy font-bold"
+                        : "border-border-grey text-trust-navy"
                     }`}
                   >
-                    <span
-                      className={`absolute top-0.5 left-0.5 w-5 h-5 rounded-full transition-transform duration-300 bg-deep-onyx ${
-                        nutrition ? "transform translate-x-6" : ""
-                      }`}
-                    />
+                    <MapPin size={14} className="text-recovery-teal" />
+                    <div>
+                      <span className="block text-xs text-left leading-none uppercase font-bold text-caption">Udaipur</span>
+                      <span className="block mt-0.5">Mahe Clinic</span>
+                    </div>
+                  </button>
+                  <button
+                    onClick={() => setSelectedClinic("paras")}
+                    className={`px-4 py-3 border rounded-full flex items-center justify-center gap-2 text-sm font-semibold transition-all ${
+                      selectedClinic === "paras"
+                        ? "border-medical-blue bg-medical-blue/5 text-trust-navy font-bold"
+                        : "border-border-grey text-trust-navy"
+                    }`}
+                  >
+                    <MapPin size={14} className="text-medical-blue" />
+                    <div>
+                      <span className="block text-xs text-left leading-none uppercase font-bold text-caption">Udaipur</span>
+                      <span className="block mt-0.5">Paras Hospital</span>
+                    </div>
                   </button>
                 </div>
-                <p className="text-caption text-pale-ash mt-1">
-                  Active cellular autophagy programs and high prebiotic content.
-                </p>
               </div>
-            </div>
 
-            <div className="mt-8 pt-6 border-t border-dark-charcoal text-caption text-pale-ash text-center leading-relaxed">
-              *Projections based on clinical longevity cohort aggregates. Actual epigenetic results require laboratory salivary methylation assays.
             </div>
           </div>
 
-          {/* Results Panel (Right) */}
-          <div className="lg:col-span-5 bg-deep-onyx border border-dark-charcoal p-8 rounded-md flex flex-col justify-between relative overflow-hidden">
-            {/* Visual Indicator Ring */}
-            <div className="flex flex-col items-center justify-center py-6">
-              <div className="relative w-44 h-44 flex items-center justify-center">
-                <svg className="absolute w-full h-full transform -rotate-90">
-                  <circle cx="88" cy="88" r="80" fill="none" stroke="#181109" strokeWidth="3" />
-                  <motion.circle
-                    cx="88"
-                    cy="88"
-                    r="80"
-                    fill="none"
-                    stroke="#ffb442"
-                    strokeWidth="3"
-                    strokeDasharray="502"
-                    animate={{ strokeDashoffset: 502 - (502 * score) / 100 }}
-                    transition={{ type: "spring", stiffness: 60, damping: 15 }}
-                  />
-                </svg>
-                <div className="text-center z-10">
-                  <span className="text-caption text-pale-ash uppercase tracking-wider block">Bio Score</span>
-                  <span className="text-heading-lg text-dawn-linen font-bold font-mono tracking-tight leading-none block my-1">
-                    {score}
-                  </span>
-                  <span className="text-[10px] text-amber-glow uppercase tracking-wider block font-mono">
-                    {score >= 85 ? "OPTIMAL RATE" : score >= 65 ? "STEADY LEVEL" : "DECAY WARNING"}
-                  </span>
-                </div>
+          {/* Diagnostic Results (Right Column) */}
+          <div className="lg:col-span-5 bg-[#140b00] border border-border-grey p-8 rounded-[6px] flex flex-col justify-between shadow-sm relative overflow-hidden">
+            {/* Top clinical seal */}
+            <div className="pb-6 border-b border-border-grey flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-medical-blue/10 flex items-center justify-center text-medical-blue">
+                <ShieldCheck size={20} />
               </div>
-
-              {/* Dynamic Delta Output */}
-              <div className="mt-8 text-center min-h-[70px]">
-                <span className="text-caption text-pale-ash uppercase tracking-wider block">
-                  EPIGENETIC AGE DIFFERENTIAL
+              <div>
+                <span className="text-[10px] font-bold text-recovery-teal uppercase tracking-widest block">
+                  Intake Report
                 </span>
-                <AnimatePresence mode="wait">
-                  <motion.span
-                    key={totalAgeDelta}
-                    initial={{ opacity: 0, scale: 0.9, y: 5 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.9, y: -5 }}
-                    transition={{ duration: 0.3 }}
-                    className="text-display font-medium text-amber-glow block font-mono my-2"
-                  >
-                    {totalAgeDelta > 0 ? `+${totalAgeDelta}` : totalAgeDelta}y
-                  </motion.span>
-                </AnimatePresence>
-                <p className="text-caption text-dawn-linen uppercase tracking-wider">
-                  {totalAgeDelta < 0 ? "Biological Age Reversal Active" : "Accelerated Biological Decay Detected"}
-                </p>
+                <span className="text-sm font-bold text-trust-navy block">
+                  Dr. Singhal's Diagnostic Routing
+                </span>
               </div>
             </div>
 
-            {/* CTA action embedded */}
+            {/* Dynamic Recommendation Panel */}
+            <div className="py-6 flex-grow flex flex-col justify-center">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-trust-navy/60 block">
+                Primary Assessment
+              </span>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={symptom + duration + severity}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3 }}
+                  className="mt-2"
+                >
+                  <h3 className="text-subheading font-bold text-medical-blue leading-tight">
+                    {advice.title}
+                  </h3>
+                  <div className="mt-4 p-4 bg-soft-grey border border-border-grey rounded-lg">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-recovery-teal block">
+                      Recommended Protocol
+                    </span>
+                    <p className="text-body text-sm mt-1 leading-relaxed">
+                      {advice.protocol}
+                    </p>
+                  </div>
+                  <div className="mt-4 grid grid-cols-2 gap-4">
+                    <div>
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-trust-navy/60 block">
+                        Clinic Target
+                      </span>
+                      <span className="text-xs font-bold text-trust-navy flex items-center gap-1 mt-1">
+                        <MapPin size={12} className="text-recovery-teal" />
+                        {selectedClinic === "mahe" ? "Mahe Clinic" : "Paras Hospital"}
+                      </span>
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-trust-navy/60 block">
+                        Booking Urgency
+                      </span>
+                      <span className="text-xs font-bold text-medical-blue flex items-center gap-1 mt-1">
+                        <Clock size={12} />
+                        {advice.timeframe}
+                      </span>
+                    </div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            {/* Direct Booking CTA */}
             <a
-              href="#pricing"
-              className="btn-primary w-full text-center py-3 font-semibold uppercase tracking-wider text-xs shadow-md"
+              href="#booking"
+              className="btn-primary w-full text-center py-3.5 font-bold uppercase tracking-wider text-xs shadow-md mt-6 rounded-lg flex items-center justify-center gap-2"
             >
-              Secure epigenetic audit membership
+              <Calendar size={14} />
+              <span>Route & Book Appointment Slot</span>
             </a>
           </div>
+
         </div>
+
       </div>
     </section>
   );

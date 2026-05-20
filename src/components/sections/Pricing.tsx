@@ -1,131 +1,133 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Check, Star } from "lucide-react";
+import { MapPin, Phone, Clock, Cpu, Check, Hospital } from "lucide-react";
 
 export default function Pricing() {
-  const tiers = [
+  const centers = [
     {
-      name: "Oasis Basic",
-      price: "$1,800",
-      period: "Quarterly Audit",
-      desc: "Essential metabolic and circadian audits for professionals looking to baseline their vital longevity markers.",
+      name: "Mahe Clinic",
+      type: "Primary Outpatient Clinic",
+      location: "Bedla Road, Udaipur, Rajasthan",
+      contact: "+91 94143 93320",
+      timings: "05:00 PM - 08:00 PM (Mon - Sat)",
       features: [
-        "1x Epigenetic Salivary Assay",
-        "Circadian Phase Optimization Audit",
-        "Standard Cellular Energy Plan",
-        "Digital Dashboard Compliance Access",
+        "In-person clinical diagnostic checkups",
+        "Sports injury recovery checkups",
+        "Arthroscopic diagnosis scheduling",
+        "Joint pain non-surgical therapy",
       ],
       isAccent: false,
     },
     {
-      name: "Cellular Elite",
-      price: "$3,600",
-      period: "Quarterly Audit",
-      desc: "Our gold-standard continuous clinical program featuring custom hormone optimization and infrared desert thermal access.",
+      name: "Robotic Joint Surgery Suite",
+      type: "Advanced Clinical Technology",
+      location: "State-of-the-Art Robotic Surgical Arms",
+      contact: "Precise anatomical alignment",
+      timings: "Minimally invasive knee & hip replacements",
       features: [
-        "2x Epigenetic Salivary Assays",
-        "Continuous HRV & Biomining Audits",
-        "Direct MD Longevity Consultation",
-        "All-access Thermal Oasis Therapy",
-        "Anti-inflammatory Meal Formulation",
+        "Robotic-assisted precision alignment",
+        "Maximum healthy bone & ligament preservation",
+        "Drastically reduced post-operative pain",
+        "Faster rehabilitation & immediate gait restoration",
       ],
       isAccent: true,
     },
     {
-      name: "Longevity Full Audit",
-      price: "$6,500",
-      period: "Annual Full Spectrum",
-      desc: "Complete cellular, organ, and blood genome sequencing with full-scale physical reconstitution in our private sanctuary.",
+      name: "Paras Hospital",
+      type: "Multi-Specialty Corporate Care",
+      location: "NH-8, Udaipur, Rajasthan",
+      contact: "+91 94143 93320",
+      timings: "09:00 AM - 04:00 PM (Mon - Sat)",
       features: [
-        "4x Epigenetic Salivary Assays",
-        "Full Genome Sequencing (Next-Gen)",
-        "24/7 Concierge Clinical Guidance",
-        "Private Oasis Bungalow Reserve",
-        "Advanced Peptide Cellular Therapy",
+        "Advanced modular operation theatres",
+        "Modern robotic replacement equipment",
+        "Inpatient registration & nursing care",
+        "Comprehensive trauma & emergency orthopedics",
       ],
       isAccent: false,
     },
   ];
 
   return (
-    <section id="pricing" className="relative py-24 bg-abyss border-t border-dark-charcoal overflow-hidden">
-      {/* Soft background ambient light */}
-      <div className="absolute right-10 bottom-10 w-[450px] h-[450px] bg-amber-glow/5 rounded-full blur-[140px] pointer-events-none" />
+    <section id="robotic" className="relative py-24 bg-soft-grey overflow-hidden">
+      {/* Subtle circular background lighting */}
+      <div className="absolute top-1/3 right-0 w-[450px] h-[450px] rounded-full bg-medical-blue/5 blur-[120px] pointer-events-none" />
 
-      <div className="max-w-5xl mx-auto px-6">
-        <div className="max-w-xl mb-16 text-center mx-auto">
-          <span className="text-caption uppercase tracking-wider text-amber-glow font-medium">
-            Epigenetic Memberships
+      <div className="max-w-7xl mx-auto px-6">
+        
+        {/* Section Header */}
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <span className="text-caption font-bold uppercase tracking-wider text-recovery-teal">
+            Technology & Clinics
           </span>
-          <h2 className="text-heading-lg text-dawn-linen mt-4 tracking-[-0.008em]">
-            MEMBERSHIP TIERS BUILT FOR METABOLIC LEGACY
+          <h2 className="text-section font-bold tracking-tight text-trust-navy mt-3">
+            World-Class Robotic Joint Technology & Clinic Locations
           </h2>
-          <p className="text-body text-pale-ash mt-4 leading-relaxed">
-            Invest in clinical cellular protection. Select a membership program tailored to your long-term longevity metrics.
+          <p className="text-body mt-4 leading-relaxed">
+            Consult directly at Mahe Clinic or access advanced, robotic-assisted surgical theaters at Paras Hospital. We bring precision joint replacements to Udaipur.
           </p>
         </div>
 
-        {/* Pricing Cards Grid */}
+        {/* Pricing/Clinic Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
-          {tiers.map((tier, idx) => (
+          {centers.map((cnt, idx) => (
             <motion.div
               key={idx}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className={`rounded-md p-8 flex flex-col justify-between relative ${
-                tier.isAccent
-                  ? "bg-amber-glow text-deep-onyx shadow-[0_0_40px_rgba(255,180,66,0.15)] border-t-4 border-dawn-linen"
-                  : "bg-deep-onyx text-dawn-linen border border-dark-charcoal hover:border-fossil-grey transition-all"
+              className={`rounded-[6px] p-8 flex flex-col justify-between relative shadow-sm transition-all duration-300 ${
+                cnt.isAccent
+                  ? "bg-[#ffb442] text-[#140b00] shadow-xl scale-[1.03] border-t-4 border-[#fff1e0]"
+                  : "bg-[#0b0600] text-[#fff1e0] border border-border-grey hover:border-recovery-teal hover:shadow-md"
               }`}
-              style={{ borderRadius: "6px" }}
             >
-              {/* Highlight badge for Accent Tier */}
-              {tier.isAccent && (
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-deep-onyx text-amber-glow text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-fossil-grey flex items-center gap-1.5 shadow-md">
-                  <Star size={10} fill="#ffb442" stroke="none" /> Recommended Program
+              {/* Recommended Technology Badge */}
+              {cnt.isAccent && (
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#fff1e0] text-[#140b00] text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-border-grey flex items-center gap-1.5 shadow-md">
+                  <Cpu size={12} className="text-[#ffb442] animate-pulse" /> Advanced Innovation
                 </div>
               )}
 
               <div>
                 {/* Header */}
                 <div className="mb-6">
-                  <span className={`text-caption uppercase tracking-wider ${tier.isAccent ? "text-deep-onyx/70" : "text-pale-ash"}`}>
-                    {tier.period}
+                  <span className={`text-caption uppercase tracking-wider font-bold block ${cnt.isAccent ? "text-[#140b00]/80" : "text-recovery-teal"}`}>
+                    {cnt.type}
                   </span>
-                  <h3
-                    className={`font-medium tracking-[-0.003em] mt-2 ${
-                      tier.isAccent ? "text-[29px] text-deep-onyx" : "text-heading"
-                    }`}
-                  >
-                    {tier.name}
+                  <h3 className="text-subheading font-bold mt-2 font-display">
+                    {cnt.name}
                   </h3>
-                  <div className="flex items-baseline gap-1 mt-4">
-                    <span className="text-heading-lg font-bold font-mono tracking-tight">
-                      {tier.price}
-                    </span>
-                    <span className={`text-caption uppercase font-medium ${tier.isAccent ? "text-deep-onyx/70" : "text-pale-ash"}`}>
-                      / Cycle
-                    </span>
+                </div>
+
+                {/* Location Timings Block */}
+                <div className="space-y-2.5 mb-6 pb-6 border-b border-border-grey/30">
+                  <div className="flex items-start gap-2.5 text-xs">
+                    <MapPin size={14} className={cnt.isAccent ? "text-[#140b00] mt-0.5" : "text-[#ffb442] mt-0.5"} />
+                    <span className="font-medium">{cnt.location}</span>
+                  </div>
+                  <div className="flex items-start gap-2.5 text-xs">
+                    <Clock size={14} className={cnt.isAccent ? "text-[#140b00] mt-0.5" : "text-[#ffb442] mt-0.5"} />
+                    <span className="font-medium">{cnt.timings}</span>
+                  </div>
+                  <div className="flex items-start gap-2.5 text-xs">
+                    <Phone size={14} className={cnt.isAccent ? "text-[#140b00] mt-0.5" : "text-[#ffb442] mt-0.5"} />
+                    <span className="font-medium">{cnt.contact}</span>
                   </div>
                 </div>
 
-                <p className={`text-body leading-relaxed mb-8 ${tier.isAccent ? "text-deep-onyx/95" : "text-pale-ash"}`}>
-                  {tier.desc}
-                </p>
-
-                {/* Features List */}
+                {/* Features Checklist */}
                 <ul className="space-y-4 mb-8">
-                  {tier.features.map((feat, fIdx) => (
-                    <li key={fIdx} className="flex items-start gap-3">
+                  {cnt.features.map((feat, fIdx) => (
+                    <li key={fIdx} className="flex items-start gap-2.5">
                       <div className={`mt-0.5 rounded-full p-0.5 flex items-center justify-center ${
-                        tier.isAccent ? "bg-deep-onyx text-amber-glow" : "bg-dark-charcoal text-dawn-linen border border-fossil-grey/40"
+                        cnt.isAccent ? "bg-[#140b00] text-[#ffb442]" : "bg-[#140b00] text-[#ffb442] border border-border-grey"
                       }`}>
                         <Check size={10} strokeWidth={3} />
                       </div>
-                      <span className="text-body font-medium leading-none">
+                      <span className="text-sm font-semibold leading-snug">
                         {feat}
                       </span>
                     </li>
@@ -134,19 +136,30 @@ export default function Pricing() {
               </div>
 
               {/* Action Button */}
-              <button
-                className={`w-full py-3.5 text-xs font-bold uppercase tracking-wider transition-all hover:scale-[1.02] ${
-                  tier.isAccent
-                    ? "bg-deep-onyx text-amber-glow hover:bg-black"
-                    : "bg-amber-glow text-deep-onyx hover:bg-dawn-linen"
+              <a
+                href="#booking"
+                className={`w-full py-3 text-center text-xs font-bold uppercase tracking-wider transition-all duration-300 rounded-full flex items-center justify-center gap-2 ${
+                  cnt.isAccent
+                    ? "bg-[#140b00] text-[#ffb442] hover:bg-[#0b0600]"
+                    : "bg-[#ffb442] text-[#140b00] hover:bg-[#fff1e0]"
                 }`}
-                style={{ borderRadius: "1296px" }}
               >
-                Secure Membership
-              </button>
+                {cnt.isAccent ? (
+                  <>
+                    <Cpu size={14} />
+                    <span>Explore Robotics</span>
+                  </>
+                ) : (
+                  <>
+                    <Hospital size={14} />
+                    <span>Select Location</span>
+                  </>
+                )}
+              </a>
             </motion.div>
           ))}
         </div>
+
       </div>
     </section>
   );

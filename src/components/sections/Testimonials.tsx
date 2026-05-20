@@ -2,100 +2,90 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Quote } from "lucide-react";
+import { Award, ShieldAlert, BadgeCheck, CheckCircle2 } from "lucide-react";
 
 export default function Testimonials() {
-  const reviews = [
-    {
-      quote: "The biological audit was a turning point. My resting sleep architecture had deteriorated, but through circadian phase alignment and targeted mitochondrial stimulation, I reversed my biological clock by 4.8 years within 6 months. I feel the mental clarity of my early thirties.",
-      author: "Marcus Vance",
-      role: "Venture Partner, Age 52",
-      metric: "Bio-Age: -4.8 Years",
-    },
-    {
-      quote: "Unlike wellness clinics that sell quick-fix vitamin drips, Abetterlou offers structural metabolic recalibration. My biological inflammation markers dropped from a moderate 2.1 to an optimal 0.4 mg/L. The desert thermals and audit protocols have given me a baseline of deep cellular vitality.",
-      author: "Dr. Clara Sterling",
-      role: "Immunologist, Age 46",
-      metric: "hs-CRP: 0.4 mg/L",
-    },
+  const specializations = [
+    "Robotic Knee Replacement Specialists",
+    "Robotic Hip Replacement Alignments",
+    "Minimally Invasive Arthroscopic Surgery",
+    "Sports Ligament & ACL Reconstruction",
+    "Complex Trauma & Primary Revision Surgery",
+    "Arthritis Pain Management Programs",
   ];
 
   return (
-    <section className="relative py-24 bg-abyss border-t border-dark-charcoal overflow-hidden">
-      {/* Dynamic ambient background glow */}
-      <div className="absolute left-1/4 bottom-1/4 w-[400px] h-[400px] bg-amber-glow/5 rounded-full blur-[130px] pointer-events-none" />
-
-      <div className="max-w-5xl mx-auto px-6">
+    <section id="about" className="relative py-24 bg-[#0b0600] overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Visual Portrait Image Card (Left 5 columns) */}
-          <div className="lg:col-span-5 relative h-[450px] w-full rounded-md overflow-hidden bg-deep-onyx border border-fossil-grey group">
+          
+          {/* Visual Image & Trust Seals Column (5 cols) */}
+          <div className="lg:col-span-5 relative w-full aspect-[4/5] rounded-[6px] overflow-hidden bg-soft-grey border border-border-grey shadow-lg max-w-sm mx-auto group">
             <Image
-              src="/longevity_portrait.png"
-              alt="Longevity Patient Marcus Vance"
+              src="/dr_singhal_portrait.png"
+              alt="Dr. Ashish Singhal - Orthopedic Surgeon Udaipur"
               fill
-              className="object-cover object-center desaturate brightness-[85%] contrast-[110%] group-hover:scale-105 transition-transform duration-700"
+              className="object-cover object-center group-hover:scale-102 transition-transform duration-500"
             />
-            {/* Design Token Amber Glow Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0b0600] via-[#0b0600]/40 to-transparent" />
+            {/* Dark medical bottom overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-trust-navy/50 via-transparent to-transparent pointer-events-none" />
             
-            {/* Embedded telemetry watermark */}
-            <div className="absolute bottom-6 left-6 right-6 p-4 bg-deep-onyx/90 border border-dark-charcoal backdrop-blur-sm rounded-md">
-              <span className="text-[10px] font-mono uppercase tracking-widest text-pale-ash block">
-                Epigenetic Verification
-              </span>
-              <span className="text-subheading font-medium text-amber-glow block mt-1">
-                Patient #0421-MV
-              </span>
-              <span className="text-caption text-dawn-linen block mt-0.5">
-                Biological Delta: -4.8 Years Certified
-              </span>
+            {/* Accreditation Seal */}
+            <div className="absolute bottom-6 left-6 right-6 p-4 bg-[#140b00]/95 border border-border-grey backdrop-blur-sm rounded-[6px] shadow-md flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-recovery-teal/10 flex items-center justify-center text-recovery-teal flex-shrink-0">
+                <Award size={18} />
+              </div>
+              <div>
+                <span className="text-[10px] font-bold text-recovery-teal uppercase tracking-widest block font-display">
+                  Certified Award
+                </span>
+                <span className="text-xs font-bold text-trust-navy block mt-0.5">
+                  Best Orthopedic Surgeon in Udaipur
+                </span>
+              </div>
             </div>
           </div>
 
-          {/* Testimonial Quotes Content (Right 7 columns) */}
-          <div className="lg:col-span-7 flex flex-col justify-center space-y-12">
+          {/* Credentials Content Column (7 cols) */}
+          <div className="lg:col-span-7 flex flex-col justify-center space-y-8">
             <div>
-              <span className="text-caption uppercase tracking-wider text-amber-glow font-medium">
-                epigenetic proof
+              <span className="text-caption font-bold uppercase tracking-wider text-recovery-teal flex items-center gap-1.5">
+                <BadgeCheck size={14} /> Medical Director Profile
               </span>
-              <h2 className="text-heading-lg text-dawn-linen mt-4 tracking-[-0.008em]">
-                REFLECTIONS FROM THE OASIS
+              <h2 className="text-section font-bold text-trust-navy mt-3 tracking-tight">
+                Meet Dr. Ashish Singhal, MS (Ortho)
               </h2>
+              <span className="text-body font-semibold text-medical-blue mt-2 block">
+                20+ Years of Trusted Orthopedic & Robotic Innovation
+              </span>
             </div>
 
-            <div className="space-y-8">
-              {reviews.map((rev, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: idx * 0.1 }}
-                  className="bg-deep-onyx border border-dark-charcoal p-6 rounded-md relative hover:border-fossil-grey transition-all"
-                >
-                  <Quote className="absolute top-6 right-6 text-pale-ash/20" size={32} />
-                  
-                  <p className="text-body text-dawn-linen leading-relaxed pr-8">
-                    &ldquo;{rev.quote}&rdquo;
-                  </p>
+            <div className="space-y-6">
+              <p className="text-body leading-relaxed">
+                Dr. Ashish Singhal is recognized as a pioneering orthopedic force in Udaipur and Rajasthan, offering advanced, technology-driven joint replacements and sports medicine. With a professional career spanning over two decades, he integrates clinical orthopedic expertise with advanced surgical robotic technologies to deliver precise anatomical alignments, significantly reduced post-operative pain, and rapid patient recovery.
+              </p>
+              
+              <p className="text-body leading-relaxed">
+                He is highly dedicated to a patient-centric treatment approach. By accurately identifying root causes of mobility issues—including arthritis, chronic knee friction, sports trauma, and ligament strains—he structures personalized surgical or non-surgical treatments that restore native joint mechanics and long-term health.
+              </p>
 
-                  <div className="mt-6 pt-4 border-t border-dark-charcoal flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                    <div>
-                      <span className="text-body font-medium text-dawn-linen block">
-                        {rev.author}
-                      </span>
-                      <span className="text-caption text-pale-ash block">
-                        {rev.role}
-                      </span>
+              {/* Specialization List */}
+              <div className="pt-4 border-t border-border-grey">
+                <span className="text-caption font-bold text-trust-navy uppercase tracking-wider block mb-4">
+                  Surgical & Clinical Focus Areas
+                </span>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {specializations.map((spec, sIdx) => (
+                    <div key={sIdx} className="flex items-center gap-2">
+                      <CheckCircle2 size={15} className="text-medical-blue flex-shrink-0" />
+                      <span className="text-sm font-semibold text-trust-navy">{spec}</span>
                     </div>
-                    <span className="text-caption text-amber-glow font-mono uppercase tracking-wider px-3 py-1 bg-dark-charcoal border border-fossil-grey rounded-full self-start">
-                      {rev.metric}
-                    </span>
-                  </div>
-                </motion.div>
-              ))}
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>

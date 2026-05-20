@@ -1,97 +1,121 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Dna, Moon, Eye, SunDim } from "lucide-react";
+import { Dumbbell, ShieldAlert, Cpu, CheckCircle } from "lucide-react";
 
 export default function Features() {
-  const pillars = [
+  const treatments = [
     {
-      title: "Biological Audits",
-      desc: "Comprehensive epigenetic diagnostics monitoring 820+ cellular and blood metrics to isolate precise bio-targets.",
-      icon: Dna,
-      badge: "Diagnostics",
+      title: "Sports Injury Treatment",
+      desc: "Comprehensive performance-focused sports recovery programs catering to athletes of all disciplines.",
+      points: [
+        "Ligament & ACL repairs",
+        "Arthroscopic knee & shoulder repair",
+        "Sports physical rehabilitation",
+        "Musculoskeletal mobility restoration",
+      ],
+      icon: Dumbbell,
+      badge: "Athletic Mobility",
     },
     {
-      title: "Circadian Syncing",
-      desc: "Aligning deep endocrine and cortisol systems with local sun trajectories to restore core cellular rest cycles.",
-      icon: Moon,
-      badge: "Circadian",
+      title: "Arthroscopic Orthopedics",
+      desc: "Advanced minimally invasive joint diagnostics and repairs ensuring patient comfort and lower post-op healing times.",
+      points: [
+        "Minimally invasive keyhole access",
+        "Precision cartilage repairs",
+        "High-definition digital diagnosis",
+        "Customized fast healing plans",
+      ],
+      icon: ShieldAlert,
+      badge: "Keyhole Precision",
     },
     {
-      title: "Cellular Reconstitution",
-      desc: "Elite metabolic and mitochondrial stimulation programs designed to boost ATP synthesis and lower inflammatory CRP.",
-      icon: Eye,
-      badge: "Mitochondrial",
-    },
-    {
-      title: "Desert Thermal Therapy",
-      desc: "Integrating infrared thermal fluctuations and mineral bath protocols to trigger robust shock protein responses.",
-      icon: SunDim,
-      badge: "Physical",
+      title: "Robotic Knee & Hip Replacement",
+      desc: "State-of-the-art robotic-assisted joint alignment technology integrated directly into surgical orthopedic workflows.",
+      points: [
+        "Robotic alignment precision",
+        "Sparing healthy bone & ligaments",
+        "Reduced post-surgical pain levels",
+        "Highly durable, long-lasting implants",
+      ],
+      icon: Cpu,
+      badge: "Robotic Innovation",
     },
   ];
 
   return (
-    <section id="features" className="relative py-24 bg-abyss border-t border-dark-charcoal overflow-hidden">
-      {/* Accent soft backdrop light */}
-      <div className="absolute left-10 bottom-10 w-[300px] h-[300px] bg-amber-glow/5 rounded-full blur-[100px] pointer-events-none" />
-
-      <div className="max-w-5xl mx-auto px-6">
-        <div className="max-w-xl mb-16">
-          <span className="text-caption uppercase tracking-wider text-amber-glow font-medium">
-            System Abstractions
+    <section id="services" className="relative py-24 bg-[#0b0600] overflow-hidden">
+      <div className="max-w-[94%] mx-auto px-4 md:px-8">
+        
+        {/* Section Header */}
+        <div className="max-w-2xl mb-16">
+          <span className="text-caption font-bold uppercase tracking-wider text-recovery-teal">
+            Core Specializations
           </span>
-          <h2 className="text-heading-lg text-dawn-linen mt-4 tracking-[-0.008em]">
-            THE FOUR PILLARS OF LONGEVITY PROTOCOLS
+          <h2 className="text-section font-bold tracking-tight text-trust-navy mt-3">
+            Advanced Orthopedic Treatments & Surgical Precision
           </h2>
-          <p className="text-body text-pale-ash mt-4 leading-relaxed">
-            Our wellness oasis does not rely on trends. We implement hard epigenetic science, clinical observation, and biological optimization in a controlled, premium environment.
+          <p className="text-body mt-4 leading-relaxed">
+            Dr. Ashish Singhal offers comprehensive clinical diagnostic pathways and advanced, technology-driven treatments to resolve chronic joint pain and restore native functional mobility.
           </p>
         </div>
 
-        {/* Feature Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-[12px]">
-          {pillars.map((pillar, idx) => (
+        {/* Treatments Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {treatments.map((treat, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="bg-deep-onyx border border-fossil-grey p-[12px] rounded-md flex flex-col justify-between min-h-[220px] group hover:border-pale-ash transition-all"
+              transition={{ duration: 0.6, delay: idx * 0.1 }}
+              className="card-clinical flex flex-col justify-between min-h-[480px]"
             >
               <div>
-                {/* Header info */}
-                <div className="flex items-center justify-between mb-4">
-                  <div className="w-10 h-10 rounded-full bg-dark-charcoal border border-fossil-grey flex items-center justify-center text-dawn-linen group-hover:text-amber-glow transition-colors">
-                    <pillar.icon size={20} strokeWidth={2} />
+                {/* Icon & Badge */}
+                <div className="flex items-center justify-between mb-6">
+                  <div className="w-12 h-12 rounded-xl bg-medical-blue/10 flex items-center justify-center text-medical-blue">
+                    <treat.icon size={22} strokeWidth={2.5} />
                   </div>
-                  <span className="text-caption font-mono uppercase tracking-wider text-pale-ash px-2 py-0.5 rounded border border-dark-charcoal">
-                    {pillar.badge}
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-recovery-teal bg-soft-grey px-3 py-1 rounded-full">
+                    {treat.badge}
                   </span>
                 </div>
 
-                {/* Content */}
-                <h3 className="text-subheading text-dawn-linen font-medium mt-[12px]">
-                  {pillar.title}
+                {/* Heading */}
+                <h3 className="text-subheading font-bold text-trust-navy mt-4">
+                  {treat.title}
                 </h3>
-                <p className="text-body text-pale-ash mt-2 leading-relaxed">
-                  {pillar.desc}
+                
+                {/* Description */}
+                <p className="text-body text-sm mt-3 leading-relaxed">
+                  {treat.desc}
                 </p>
+
+                {/* Point Items */}
+                <ul className="mt-6 space-y-3">
+                  {treat.points.map((pt, pIdx) => (
+                    <li key={pIdx} className="flex items-start gap-2.5">
+                      <CheckCircle size={14} className="text-success-green mt-1 flex-shrink-0" />
+                      <span className="text-sm font-medium text-trust-navy">{pt}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              {/* Decorative detail */}
-              <div className="mt-4 pt-4 border-t border-dark-charcoal flex justify-between items-center">
-                <span className="text-caption text-pale-ash font-mono uppercase tracking-widest">
-                  AB-SYS 00{idx + 1}
+              {/* Action trigger */}
+              <div className="mt-8 pt-6 border-t border-border-grey flex items-center justify-between">
+                <span className="text-caption font-mono uppercase tracking-widest">
+                  Specialty 0{idx + 1}
                 </span>
-                <span className="text-caption text-amber-glow font-medium">
-                  Protocol Active
-                </span>
+                <a href="#booking" className="text-xs font-bold text-medical-blue hover:text-trust-navy transition-colors uppercase tracking-wider">
+                  Book Clinic Audit
+                </a>
               </div>
             </motion.div>
           ))}
         </div>
+
       </div>
     </section>
   );
