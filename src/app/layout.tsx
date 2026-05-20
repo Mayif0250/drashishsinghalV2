@@ -32,7 +32,7 @@ export default function RootLayout({
       className={`${inter.variable} ${hankenGrotesk.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-canvas-warmth text-body-gray">
+      <body className="min-h-full flex flex-col bg-canvas-warmth text-body-gray" suppressHydrationWarning>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
           {children}
         </ThemeProvider>
