@@ -9,14 +9,118 @@ export default function Services() {
   const [activeIdx, setActiveIdx] = useState<number | null>(null);
 
   const services = [
-    { title: "Robotic Knee Replacement", desc: "State-of-the-art knee replacement using the best robotic technology. Delivering personalized treatment plans that minimize recovery time.", points: ["Total Knee Replacement", "Partial Knee Replacement", "Revision Knee Replacement"] },
-    { title: "Robotic Hip Replacement", desc: "Hip surgery performed using cutting-edge robotic technology. This innovative method enhances surgical accuracy and promotes quicker healing.", points: ["Total Hip Replacement", "Partial Hip Replacement", "Revision Hip Replacement"] },
-    { title: "Knee Pain Treatment", desc: "Comprehensive knee pain treatment helping patients get back on their feet and back to their active lives without unnecessary delays.", points: ["Knee Arthritis", "Cartilage & Meniscal Tears", "ACL Injuries", "Patellar Dislocations"] },
-    { title: "Foot & Ankle Treatment", desc: "From non-operative care for minor conditions to the latest surgical procedures for more complex disorders and traumatic injuries.", points: ["Sports Injuries", "Flat Feet & Plantar Fasciitis", "Foot & Ankle Fractures", "Achilles Tendon"] },
-    { title: "PRP Tendinitis Therapy", desc: "PRP injections are highly effective at accelerating the healing of various forms of tendinitis and common sports injuries.", points: ["Achilles Tendinitis", "Patellar Tendinitis", "Rotator Cuff Injuries", "Tennis/Golfer's Elbow"] },
-    { title: "Upper Extremity Care", desc: "Expert treatment for complex hand, wrist, elbow, and shoulder conditions to restore full upper body mobility.", points: ["Rotator Cuff Tears", "Shoulder Dislocations", "Arthritis of the Hand", "Tendon Ruptures"] },
-    { title: "Arthroscopic Surgery", desc: "Minimally invasive keyhole procedures for precise diagnosis and rapid treatment of joint injuries with faster recovery.", points: ["Meniscus Repair", "ACL Reconstruction", "Hip Impingement", "Wrist Injuries"] },
-    { title: "Advanced Spine Therapy", desc: "Exploring nonsurgical treatments first, followed by state-of-the-art minimally invasive spinal surgery techniques if needed.", points: ["Physical Therapy", "Spinal Injections", "PRP Therapy", "Spinal Reconstruction"] },
+    {
+      title: "Knee replacement with worlds best robotic technology",
+      desc: "State-of-the-art knee replacement procedures using the best robotic technology available. Delivering personalized treatment plans that not only minimize recovery time but also enhance overall outcomes, allowing you to reclaim an active lifestyle swiftly. Procedures performed at our Centre:",
+      points: [
+        "Total Knee replacement",
+        "Partial Knee replacement",
+        "Revision Knee replacement"
+      ],
+      actions: [
+        { label: "Learn More", href: "#booking", primary: false },
+        { label: "Book Now", href: "#booking", primary: true }
+      ]
+    },
+    {
+      title: "Hip replacement with worlds best robotic technology",
+      desc: "Hip surgery performed using cutting-edge robotic technology renowned worldwide. This innovative method not only enhances surgical accuracy but also promotes quicker healing, allowing you to regain your mobility and comfort sooner. Procedures performed at our center:",
+      points: [
+        "Total hip replacement",
+        "Partial hip replacement",
+        "Revision hip replacement"
+      ],
+      actions: [
+        { label: "Learn More", href: "#booking", primary: false },
+        { label: "Book Now", href: "#booking", primary: true }
+      ]
+    },
+    {
+      title: "Knee Pain Treatment",
+      desc: "Our knee pain treatment goal is to help patients get back on their feet and back to their active lives. Knee conditions we treat:",
+      points: [
+        "Knee arthritis",
+        "Cartilage injuries",
+        "Meniscal tears",
+        "ACL injuries",
+        "Patellar dislocations and disorders",
+        "Fractures around the knee",
+        "Quadriceps tendon autografts",
+        "Patellar dislocation & disorder"
+      ],
+      actions: [
+        { label: "Book Now", href: "#booking", primary: true }
+      ]
+    },
+    {
+      title: "Foot & Ankle treatment",
+      desc: "Non-operative care and daycare procedures for minor conditions to the latest surgical procedures for more complex disorders and injuries.",
+      points: [
+        "Sports injuries",
+        "Flat feet",
+        "Plantar fasciitis",
+        "Foot neuromas",
+        "Foot and ankle fractures",
+        "Foot and ankle arthritis",
+        "Hammertoes",
+        "Achilles tendon injuries",
+        "Pediatric deformities"
+      ],
+      actions: []
+    },
+    {
+      title: "PRP Treatment for Tendinitis",
+      desc: "While PRP injections are effective at accelerating the healing of form of tendinitis, there are several common sports injuries where they can be most effective:",
+      points: [
+        "Achilles Tendinitis",
+        "Patellar Tendinitis",
+        "Rotator Cuff Injuries",
+        "Tennis Elbow",
+        "Golfer’s Elbow",
+        "Jumper’s Knee"
+      ],
+      actions: [
+        { label: "Learn More", href: "#booking", primary: false }
+      ]
+    },
+    {
+      title: "Hand, Wrist, Elbow & Shoulder Treatment",
+      desc: "Hand, Wrist, Elbow and Shoulder Conditions we treat Include:",
+      points: [
+        "Rotator cuff tear",
+        "Labral tears",
+        "Shoulder dislocations and shoulder instability",
+        "Lateral epicondylitis (tennis elbow)",
+        "Medial epicondylitis (golfer’s elbow)",
+        "Arthritis of the hand and upper extremities",
+        "Tendon ruptures"
+      ],
+      actions: []
+    },
+    {
+      title: "Arthroscopic Surgery",
+      desc: "Below are some common conditions and procedures where arthroscopy may be needed:",
+      points: [
+        "Torn Meniscus Knee Injury",
+        "ACL Injury",
+        "Elbow Osteoarthritis",
+        "Femoroacetabular (Hip) Impingement",
+        "Torn Rotator Cuff",
+        "Common Wrist Injuries"
+      ],
+      actions: [
+        { label: "Learn More", href: "#booking", primary: false },
+        { label: "Book Now", href: "#booking", primary: true }
+      ]
+    },
+    {
+      title: "Latest spine therapy",
+      desc: "We explore nonsurgical orthopedic treatment options such as physical therapy, spinal injections, platelet-rich plasma (PRP) therapy, and complex spinal reconstruction whenever possible. In those cases where back or spine surgery is necessary, we offer the latest, state-of-the-art procedures, including minimally invasive spinal surgery techniques, allowing us to provide better outcomes and, in some cases, faster recovery times for our patients.",
+      points: [],
+      actions: [
+        { label: "Book Now", href: "#booking", primary: true }
+      ]
+    }
   ];
 
   return (
@@ -25,14 +129,19 @@ export default function Services() {
 
         {/* Header */}
         <div className="mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-          <h2
-            style={{ fontFamily: "var(--font-exposure30), 'Playfair Display', serif", fontWeight: 400, letterSpacing: "-0.01px", lineHeight: 1.1 }}
-            className="text-[clamp(32px,5vw,56px)] text-midnight-charcoal max-w-xl"
-          >
-            Advanced Orthopedic Treatments
-          </h2>
+          <div>
+            <p style={{ fontFamily: "var(--font-geist), 'Inter', sans-serif" }} className="text-[10px] text-stone-accent tracking-[0.08em] uppercase mb-4">
+              02 — Areas of Practice
+            </p>
+            <h2
+              style={{ fontFamily: "var(--font-exposure30), 'Playfair Display', serif", fontWeight: 400, letterSpacing: "-0.01px", lineHeight: 1.1 }}
+              className="text-[clamp(32px,5vw,56px)] text-midnight-charcoal max-w-xl"
+            >
+              Services & Treatments
+            </h2>
+          </div>
           <p style={{ fontFamily: "var(--font-geist), 'Inter', sans-serif", fontSize: "14px", lineHeight: 1.5 }} className="text-stone-accent max-w-sm md:text-right">
-            World-class robotic technology and minimally invasive techniques — personalized for you.
+            World-class robotic technology and advanced orthopedic solutions tailored to your recovery.
           </p>
         </div>
 
@@ -70,16 +179,31 @@ export default function Services() {
                         <p style={{ fontFamily: "var(--font-geist), 'Inter', sans-serif", fontSize: "14px", lineHeight: 1.5 }} className="text-stone-accent">
                           {srv.desc}
                         </p>
-                        <div className="flex flex-col gap-3">
-                          {srv.points.map((pt, i) => (
-                            <div key={i} className="flex items-center gap-3">
-                              <span className="w-1 h-1 bg-sunset-orange flex-shrink-0" />
-                              <span style={{ fontFamily: "var(--font-geist), 'Inter', sans-serif", fontSize: "13px" }} className="text-midnight-charcoal">{pt}</span>
+                        <div className="flex flex-col gap-5">
+                          {srv.points && srv.points.length > 0 && (
+                            <div className="flex flex-col gap-2.5">
+                              {srv.points.map((pt, i) => (
+                                <div key={i} className="flex items-center gap-3">
+                                  <span className="w-1.5 h-1.5 bg-sunset-orange flex-shrink-0" />
+                                  <span style={{ fontFamily: "var(--font-geist), 'Inter', sans-serif", fontSize: "13.5px" }} className="text-midnight-charcoal">{pt}</span>
+                                </div>
+                              ))}
                             </div>
-                          ))}
-                          <Link href="#booking" className="btn-parloa-primary mt-4 self-start text-[13px] px-5 py-3">
-                            Book Consultation
-                          </Link>
+                          )}
+                          
+                          {srv.actions && srv.actions.length > 0 && (
+                            <div className="flex items-center gap-3 mt-2">
+                              {srv.actions.map((act, i) => (
+                                <Link
+                                  key={i}
+                                  href={act.href}
+                                  className={act.primary ? "btn-parloa-primary text-[13px] px-5 py-3" : "btn-parloa-light border border-ash-mist text-[13px] px-5 py-3"}
+                                >
+                                  {act.label}
+                                </Link>
+                              ))}
+                            </div>
+                          )}
                         </div>
                       </div>
                     </motion.div>

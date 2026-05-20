@@ -41,7 +41,6 @@ export default function Navbar() {
             { label: "About", href: "#about" },
             { label: "Treatments", href: "#services" },
             { label: "Clinics", href: "#robotic" },
-            { label: "FAQ", href: "#faq" },
           ].map((item) => (
             <Link
               key={item.label}

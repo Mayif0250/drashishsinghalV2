@@ -99,7 +99,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="absolute right-0 bottom-[15%] z-20"
+            className="absolute right-0 bottom-[-25%] z-20"
           >
             <h1
               style={{ fontFamily: "var(--font-exposure30), 'Playfair Display', serif", fontWeight: 400, letterSpacing: "-0.01px", lineHeight: 1 }}
@@ -158,7 +158,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.1 }}
-        className="absolute left-1/2 -translate-x-1/2 bottom-0 w-[95%] md:w-[600px] lg:w-[700px] h-[85vh] z-30 pointer-events-none"
+        className="absolute left-[35%] -translate-x-1/2 bottom-0 w-[110%] md:w-[750px] lg:w-[1080px] h-[120vh] z-30 pointer-events-none"
       >
         <Image src="/dr_singhal_original.png" alt="Dr. Ashish Singhal" fill className="object-contain object-bottom" priority />
       </motion.div>
