@@ -32,29 +32,29 @@
   --card-padding: 20px;
   --element-gap: 10px;
 
-  /* Light Theme Properties (Alveos One) */
-  --theme-canvas-warmth: #fcf9f7;
-  --theme-surface-white: #ffffff;
-  --theme-deep-graphite: #05060b;
-  --theme-text-black: #000000;
-  --theme-headline-dark: #262628;
-  --theme-body-gray: #575757;
-  --theme-muted-text: #a5a5a5;
-  --theme-line-gray: #d1cfcd;
-  --theme-ghost-fill: #030f1c;
+  /* Light Theme Properties (Medical Blue Aesthetic) */
+  --theme-canvas-warmth: #ffffff; /* White background */
+  --theme-surface-white: #ffffff; /* Card backgrounds */
+  --theme-deep-graphite: #2B8DF8; /* Primary action / Accent Blue */
+  --theme-text-black: #0A1A3A; /* Dark Navy for pure black */
+  --theme-headline-dark: #0A1A3A; /* Dark Navy for headings */
+  --theme-body-gray: #6B7280; /* Gray 500 for body text */
+  --theme-muted-text: #9CA3AF; /* Gray 400 for muted text */
+  --theme-line-gray: #E5E7EB; /* Gray 200 for borders */
+  --theme-ghost-fill: #0A5BA6; /* Dark Medical Blue */
 }
 
 :root.dark {
-  /* Dark Theme Properties (Midnight Desert Oasis from de63e7d) */
-  --theme-canvas-warmth: #0b0600; /* Abyss */
-  --theme-surface-white: #140b00; /* Deep Onyx */
-  --theme-deep-graphite: #ffb442; /* Amber Glow */
-  --theme-text-black: #fff1e0;    /* Dawn Linen */
-  --theme-headline-dark: #fff1e0; /* Dawn Linen */
-  --theme-body-gray: #85796c;     /* Pale Ash */
-  --theme-muted-text: #ffb442;    /* Amber Glow */
-  --theme-line-gray: #43392d;     /* Fossil Grey */
-  --theme-ghost-fill: #ffb442;    /* Amber Glow */
+  /* Dark Theme Properties (Medical Navy Aesthetic) */
+  --theme-canvas-warmth: #060e1f; /* Deep Navy background */
+  --theme-surface-white: #0A1A3A; /* Lighter Navy cards */
+  --theme-deep-graphite: #33A1F2; /* Vibrant Blue for accents */
+  --theme-text-black: #ffffff; /* White text */
+  --theme-headline-dark: #ffffff; /* White headings */
+  --theme-body-gray: #9CA3AF; /* Gray 400 for body */
+  --theme-muted-text: #6B7280; /* Gray 500 */
+  --theme-line-gray: #1E3A8A; /* Navy border */
+  --theme-ghost-fill: #0A5BA6; /* Dark Medical Blue */
 }
 
 /* Global Reset and Aesthetics */
@@ -179,25 +179,23 @@ body {
   align-items: center;
   justify-content: center;
   background-color: var(--theme-deep-graphite);
-  color: var(--theme-canvas-warmth);
+  color: #ffffff; /* Always white text on primary button */
   font-family: var(--font-sans);
-  font-weight: 600;
-  font-size: 12px;
-  letter-spacing: 0.444em;
-  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 14px;
   padding: 14px 30px;
-  border-radius: 12px;
-  border: 1px solid var(--theme-deep-graphite);
-  box-shadow: rgba(0, 0, 0, 0.06) 0px 1px 5px 0px;
+  border-radius: 8px; /* Match Hero rounded-lg */
+  border: none;
+  box-shadow: 0 8px 30px rgba(43, 141, 248, 0.3);
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-primary:hover {
-  background-color: var(--theme-surface-white);
-  color: var(--theme-deep-graphite);
-  border-color: var(--theme-line-gray);
-  transform: translateY(-1px);
+  background-color: #1E74D4; /* Hover color from hero */
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(43, 141, 248, 0.5);
 }
 
 /* Ghost Navigation Button */
@@ -210,10 +208,10 @@ body {
   font-family: var(--font-sans);
   font-weight: 600;
   font-size: 12px;
-  letter-spacing: 0.444em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 7px 20px;
-  border-radius: 12px;
+  border-radius: 8px;
   border: 1px solid var(--theme-line-gray);
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -225,19 +223,20 @@ body {
   transform: translateY(-1px);
 }
 
-/* Simple Content Card */
+/* Clean Modern Content Card */
 .card-clinical {
   background-color: var(--theme-surface-white);
   border: 1px solid var(--theme-line-gray);
-  border-radius: 25px;
-  padding: 20px 25px;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 10px 0px;
+  border-radius: 16px; /* modern rounded-2xl */
+  padding: 24px 28px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
   transition: all 0.3s ease;
 }
 
 .card-clinical:hover {
   border-color: var(--theme-deep-graphite);
-  box-shadow: rgba(0, 0, 0, 0.08) 0px 8px 30px 0px, rgba(0, 0, 0, 0.05) 0px 2px 8px 0px;
+  box-shadow: 0 10px 40px rgba(10, 91, 166, 0.08); /* Medical blue shadow tint */
+  transform: translateY(-2px);
 }
 
 /* Clean Custom Global Form overrides */

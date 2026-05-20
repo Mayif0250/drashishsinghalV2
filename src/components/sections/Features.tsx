@@ -1,205 +1,184 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { CheckCircle, ArrowUpRight, ChevronRight, Activity, Bone, ActivitySquare, Footprints, Syringe, Hand, Eye, Microchip } from "lucide-react";
-import Link from "next/link";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, Activity, Bone, Footprints, Syringe, Hand, Eye, Microchip, ActivitySquare, CheckCircle } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Services() {
+  const [activeIdx, setActiveIdx] = useState(0);
+
   const services = [
     {
-      title: "Knee replacement with world's best robotic technology",
-      desc: "State-of-the-art knee replacement procedures using the best robotic technology available. Delivering personalized treatment plans that not only minimize recovery time but also enhance overall outcomes, allowing you to reclaim an active lifestyle swiftly.",
-      points: [
-        "Total Knee replacement",
-        "Partial Knee replacement",
-        "Revision Knee replacement"
-      ],
+      title: "Robotic Knee Replacement",
+      short: "Knee Replacement",
+      desc: "State-of-the-art knee replacement procedures using the best robotic technology available. Delivering personalized treatment plans that minimize recovery time.",
+      points: ["Total Knee Replacement", "Partial Knee Replacement", "Revision Knee Replacement"],
       icon: Microchip,
-      actions: ["Learn More", "Book Now"]
+      image: "/robotic_joint_surgery.png"
     },
     {
-      title: "Hip replacement with world's best robotic technology",
-      desc: "Hip surgery performed using cutting-edge robotic technology renowned worldwide. This innovative method not only enhances surgical accuracy but also promotes quicker healing, allowing you to regain your mobility and comfort sooner.",
-      points: [
-        "Total hip replacement",
-        "Partial hip replacement",
-        "Revision hip replacement"
-      ],
+      title: "Robotic Hip Replacement",
+      short: "Hip Replacement",
+      desc: "Hip surgery performed using cutting-edge robotic technology. This innovative method enhances surgical accuracy and promotes quicker healing.",
+      points: ["Total Hip Replacement", "Partial Hip Replacement", "Revision Hip Replacement"],
       icon: Bone,
-      actions: ["Learn More", "Book Now"]
+      image: "/robotic_joint_surgery.png"
     },
     {
       title: "Knee Pain Treatment",
-      desc: "Our knee pain treatment goal is to help patients get back on their feet and back to their active lives.",
-      points: [
-        "Knee arthritis",
-        "Cartilage injuries & Meniscal tears",
-        "ACL injuries",
-        "Patellar dislocations and disorders",
-        "Fractures around the knee",
-        "Quadriceps tendon autografts"
-      ],
+      short: "Knee Pain",
+      desc: "Comprehensive knee pain treatment helping patients get back on their feet and back to their active lives without unnecessary delays.",
+      points: ["Knee Arthritis", "Cartilage & Meniscal Tears", "ACL Injuries", "Patellar Dislocations"],
       icon: Activity,
-      actions: ["Learn More", "Book Now"]
+      image: "/robotic_joint_surgery.png"
     },
     {
-      title: "Foot & Ankle treatment",
-      desc: "Non-operative care and daycare procedures for minor conditions to the latest surgical procedures for more complex disorders and injuries.",
-      points: [
-        "Sports injuries",
-        "Flat feet & Plantar fasciitis",
-        "Foot neuromas",
-        "Foot and ankle fractures & arthritis",
-        "Hammertoes",
-        "Achilles tendon injuries",
-        "Pediatric deformities"
-      ],
+      title: "Foot & Ankle Treatment",
+      short: "Foot & Ankle",
+      desc: "From non-operative care for minor conditions to the latest surgical procedures for more complex disorders and traumatic injuries.",
+      points: ["Sports Injuries", "Flat Feet & Plantar Fasciitis", "Foot & Ankle Fractures", "Achilles Tendon"],
       icon: Footprints,
-      actions: ["Learn More", "Book Now"]
+      image: "/robotic_joint_surgery.png"
     },
     {
-      title: "PRP Treatment for Tendinitis",
-      desc: "While PRP injections are effective at accelerating the healing of form of tendinitis, there are several common sports injuries where they can be most effective:",
-      points: [
-        "Achilles Tendinitis",
-        "Patellar Tendinitis",
-        "Rotator Cuff Injuries",
-        "Tennis Elbow",
-        "Golfer’s Elbow",
-        "Jumper’s Knee"
-      ],
+      title: "PRP Tendinitis Therapy",
+      short: "PRP Treatment",
+      desc: "PRP injections are highly effective at accelerating the healing of various forms of tendinitis and common sports injuries.",
+      points: ["Achilles Tendinitis", "Patellar Tendinitis", "Rotator Cuff Injuries", "Tennis/Golfer’s Elbow"],
       icon: Syringe,
-      actions: ["Learn More", "Book Now"]
+      image: "/robotic_joint_surgery.png"
     },
     {
-      title: "Hand, Wrist, Elbow & Shoulder Treatment",
-      desc: "Hand, Wrist, Elbow and Shoulder Conditions we treat Include:",
-      points: [
-        "Rotator cuff & Labral tears",
-        "Shoulder dislocations and shoulder instability",
-        "Lateral epicondylitis (tennis elbow)",
-        "Medial epicondylitis (golfer’s elbow)",
-        "Arthritis of the hand and upper extremities",
-        "Tendon ruptures"
-      ],
+      title: "Upper Extremity Care",
+      short: "Hand & Shoulder",
+      desc: "Expert treatment for complex hand, wrist, elbow, and shoulder conditions to restore full upper body mobility.",
+      points: ["Rotator Cuff Tears", "Shoulder Dislocations", "Arthritis of the Hand", "Tendon Ruptures"],
       icon: Hand,
-      actions: ["Learn More", "Book Now"]
+      image: "/robotic_joint_surgery.png"
     },
     {
       title: "Arthroscopic Surgery",
-      desc: "Below are some common conditions and procedures where arthroscopy may be needed:",
-      points: [
-        "Torn Meniscus Knee Injury",
-        "ACL Injury",
-        "Elbow Osteoarthritis",
-        "Femoroacetabular (Hip) Impingement",
-        "Torn Rotator Cuff",
-        "Common Wrist Injuries"
-      ],
+      short: "Arthroscopy",
+      desc: "Minimally invasive keyhole procedures for precise diagnosis and rapid treatment of joint injuries with faster recovery.",
+      points: ["Meniscus Repair", "ACL Reconstruction", "Hip Impingement", "Wrist Injuries"],
       icon: Eye,
-      actions: ["Learn More", "Book Now"]
+      image: "/robotic_joint_surgery.png"
     },
     {
-      title: "Latest spine therapy",
-      desc: "We explore nonsurgical orthopedic treatment options such as physical therapy, spinal injections, platelet-rich plasma (PRP) therapy, and complex spinal reconstruction whenever possible.\n\nIn those cases where back or spine surgery is necessary, we offer the latest, state-of-the-art procedures, including minimally invasive spinal surgery techniques, allowing us to provide better outcomes and, in some cases, faster recovery times for our patients.",
-      points: [],
+      title: "Advanced Spine Therapy",
+      short: "Spine Therapy",
+      desc: "Exploring nonsurgical orthopedic treatments first, followed by state-of-the-art minimally invasive spinal surgery techniques if needed.",
+      points: ["Physical Therapy", "Spinal Injections", "PRP Therapy", "Spinal Reconstruction"],
       icon: ActivitySquare,
-      actions: ["Learn More", "Book Now"]
+      image: "/robotic_joint_surgery.png"
     }
   ];
 
   return (
-    <section id="services" className="relative py-24 bg-canvas-warmth border-b border-line-gray overflow-hidden">
-      <div className="max-w-[94%] mx-auto px-4 md:px-8">
+    <section id="services" className="py-24 md:py-32 bg-white relative">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-8">
         
-        {/* Section Header */}
-        <div className="max-w-3xl mb-16">
-          <span className="text-caption block text-headline-dark/70 font-semibold mb-2">
-            Comprehensive Orthopedic Care
-          </span>
-          <h2 className="text-section font-bold tracking-tight text-headline-dark mt-3">
-            Our Orthopedic Services & Treatments
+        {/* Header */}
+        <div className="mb-16 md:mb-20 max-w-2xl">
+          <h2 className="text-[40px] md:text-[60px] font-bold text-[#0A1A3A] leading-tight tracking-tight mb-6">
+            Advanced Orthopedic <br/><span className="text-[#0A5BA6]">Treatments</span>
           </h2>
-          <p className="text-body mt-4 leading-relaxed text-body-gray">
-            Delivering personalized treatment plans, world-class robotic technology, and minimally invasive techniques to help you regain your mobility and comfort sooner.
+          <p className="text-lg text-gray-500">
+            Delivering personalized treatment plans, world-class robotic technology, and minimally invasive techniques to help you regain your mobility.
           </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {services.map((service, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: (idx % 2) * 0.1 }}
-              className="card-clinical flex flex-col justify-between h-full"
-            >
-              <div>
-                {/* Image Box Placeholder */}
-                <div className="relative w-full h-48 rounded-[16px] overflow-hidden mb-6 bg-line-gray/10 border border-line-gray/30 group-hover:border-deep-graphite/20 transition-colors">
-                  <Image
-                    src="/robotic_joint_surgery.png" 
-                    alt={service.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-700 hover:scale-105"
-                  />
-                </div>
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
+          
+          {/* Left Side: List of Services */}
+          <div className="lg:w-1/3 flex flex-col gap-2">
+            {services.map((srv, idx) => {
+              const isActive = activeIdx === idx;
+              return (
+                <button
+                  key={idx}
+                  onClick={() => setActiveIdx(idx)}
+                  className={`text-left px-4 py-4 md:px-6 md:py-5 rounded-2xl transition-all duration-300 flex items-center justify-between group ${
+                    isActive ? "bg-[#0A5BA6] shadow-xl shadow-[#0A5BA6]/20" : "hover:bg-gray-50"
+                  }`}
+                >
+                  <div className="flex items-center gap-4">
+                    <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors flex-shrink-0 ${
+                      isActive ? "bg-white/20 text-white" : "bg-gray-100 text-[#0A1A3A] group-hover:bg-gray-200"
+                    }`}>
+                      <srv.icon size={18} />
+                    </div>
+                    <span className={`font-bold text-sm md:text-base lg:text-lg transition-colors ${
+                      isActive ? "text-white" : "text-[#0A1A3A]"
+                    }`}>
+                      {srv.short}
+                    </span>
+                  </div>
+                  {isActive && <ArrowRight className="text-white hidden sm:block" size={20} />}
+                </button>
+              )
+            })}
+          </div>
 
-                {/* Icon */}
-                <div className="w-12 h-12 rounded-[12px] bg-deep-graphite/5 flex items-center justify-center text-deep-graphite shadow-sm mb-6">
-                  <service.icon size={22} strokeWidth={2.5} />
-                </div>
-
-                {/* Heading */}
-                <h3 className="text-subheading font-bold text-headline-dark mt-2">
-                  {service.title}
-                </h3>
+          {/* Right Side: Active Service Display */}
+          <div className="lg:w-2/3">
+             <div className="lg:sticky top-24 rounded-[30px] md:rounded-[40px] bg-[#F4F9FF] p-6 md:p-12 border border-blue-100 overflow-hidden relative min-h-[500px] md:min-h-[600px] flex flex-col justify-between shadow-2xl shadow-blue-900/5">
                 
-                {/* Description */}
-                <p className="text-body text-sm mt-3 leading-relaxed text-body-gray whitespace-pre-line">
-                  {service.desc}
-                </p>
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeIdx}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.4 }}
+                    className="relative z-10 flex flex-col h-full"
+                  >
+                    <div>
+                      <div className="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center text-[#0A5BA6] mb-8">
+                        {(() => { const Icon = services[activeIdx].icon; return <Icon size={32} />; })()}
+                      </div>
+                      <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0A1A3A] mb-6 leading-tight max-w-[90%]">
+                        {services[activeIdx].title}
+                      </h3>
+                      <p className="text-base md:text-lg text-gray-600 mb-10 max-w-xl leading-relaxed">
+                        {services[activeIdx].desc}
+                      </p>
+                      
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-6 mb-12 max-w-2xl">
+                        {services[activeIdx].points.map((pt, pIdx) => (
+                          <div key={pIdx} className="flex items-start gap-3">
+                            <CheckCircle className="text-[#2B8DF8] flex-shrink-0 mt-0.5" size={20} />
+                            <span className="font-semibold text-[#0A1A3A] text-sm md:text-base leading-snug">{pt}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
 
-                {/* Point Items */}
-                {service.points.length > 0 && (
-                  <ul className="mt-6 space-y-3">
-                    {service.points.map((pt, pIdx) => (
-                      <li key={pIdx} className="flex items-start gap-2.5">
-                        <CheckCircle size={14} className="text-deep-graphite mt-1 flex-shrink-0" />
-                        <span className="text-sm font-medium text-body-gray">{pt}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
+                    <div className="mt-auto pt-8">
+                       <Link href="#booking" className="inline-flex bg-[#0A1A3A] hover:bg-[#0A5BA6] text-white px-8 py-4 rounded-xl font-bold transition-colors shadow-lg">
+                         Consult Dr. Singhal
+                       </Link>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
 
-              {/* Action trigger */}
-              {service.actions.length > 0 && (
-                <div className="mt-8 pt-6 border-t border-line-gray flex items-center gap-4">
-                  {service.actions.map((action, aIdx) => (
-                    <Link
-                      key={aIdx}
-                      href={action === "Book Now" ? "#booking" : "#contact"}
-                      className={`text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-1 ${
-                        action === "Book Now"
-                          ? "text-deep-graphite hover:text-headline-dark"
-                          : "text-muted-text hover:text-deep-graphite"
-                      }`}
-                    >
-                      {action}
-                      {action === "Book Now" ? <ArrowUpRight size={14} /> : <ChevronRight size={14} />}
-                    </Link>
-                  ))}
+                {/* Background Image Abstract */}
+                <div className="absolute right-0 bottom-0 w-[60%] md:w-[50%] h-[80%] md:h-[90%] opacity-[0.15] pointer-events-none mix-blend-multiply transition-all duration-700">
+                   <Image 
+                     src={services[activeIdx].image} 
+                     alt="Service Background" 
+                     fill 
+                     className="object-cover object-left-top rounded-tl-[100px]" 
+                   />
+                   <div className="absolute inset-0 bg-gradient-to-r from-[#F4F9FF] to-transparent" />
+                   <div className="absolute inset-0 bg-gradient-to-t from-[#F4F9FF] to-transparent" />
                 </div>
-              )}
-            </motion.div>
-          ))}
-        </div>
+             </div>
+          </div>
 
+        </div>
       </div>
     </section>
   );

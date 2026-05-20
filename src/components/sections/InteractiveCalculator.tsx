@@ -94,7 +94,7 @@ export default function InteractiveCalculator() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
           {/* Intake Controls (Left Column) */}
-          <div className="lg:col-span-7 bg-surface-white border border-line-gray p-8 rounded-[25px] flex flex-col justify-between shadow-sm">
+          <div className="lg:col-span-7 bg-surface-white border border-line-gray p-8 rounded-2xl flex flex-col justify-between shadow-sm">
             <div className="space-y-8">
               
               {/* Parameter 1: Symptom Selector */}
@@ -112,7 +112,7 @@ export default function InteractiveCalculator() {
                     <button
                       key={sym.id}
                       onClick={() => setSymptom(sym.id)}
-                      className={`px-4 py-3 rounded-[12px] border text-xs font-bold transition-all uppercase tracking-wide ${
+                      className={`px-4 py-3 rounded-xl border text-xs font-bold transition-all uppercase tracking-wide ${
                         symptom === sym.id
                           ? "bg-deep-graphite border-deep-graphite text-canvas-warmth shadow-sm"
                           : "bg-transparent border-line-gray text-headline-dark hover:border-deep-graphite"
@@ -138,7 +138,7 @@ export default function InteractiveCalculator() {
                     <button
                       key={dur.val}
                       onClick={() => setDuration(dur.val)}
-                      className={`py-2.5 text-xs font-bold uppercase tracking-wider border rounded-[12px] transition-all ${
+                      className={`py-2.5 text-xs font-bold uppercase tracking-wider border rounded-xl transition-all ${
                         duration === dur.val
                           ? "bg-deep-graphite border-deep-graphite text-canvas-warmth shadow-sm"
                           : "bg-transparent border-line-gray text-headline-dark hover:border-deep-graphite"
@@ -182,7 +182,7 @@ export default function InteractiveCalculator() {
                 <div className="grid grid-cols-2 gap-3">
                   <button
                     onClick={() => setSelectedClinic("mahe")}
-                    className={`px-4 py-3 border rounded-[12px] flex items-center justify-center gap-2 text-sm font-semibold transition-all ${
+                    className={`px-4 py-3 border rounded-xl flex items-center justify-center gap-2 text-sm font-semibold transition-all ${
                       selectedClinic === "mahe"
                         ? "border-deep-graphite bg-canvas-warmth text-headline-dark font-bold"
                         : "border-line-gray text-headline-dark"
@@ -196,7 +196,7 @@ export default function InteractiveCalculator() {
                   </button>
                   <button
                     onClick={() => setSelectedClinic("paras")}
-                    className={`px-4 py-3 border rounded-[12px] flex items-center justify-center gap-2 text-sm font-semibold transition-all ${
+                    className={`px-4 py-3 border rounded-xl flex items-center justify-center gap-2 text-sm font-semibold transition-all ${
                       selectedClinic === "paras"
                         ? "border-deep-graphite bg-canvas-warmth text-headline-dark font-bold"
                         : "border-line-gray text-headline-dark"
@@ -215,7 +215,7 @@ export default function InteractiveCalculator() {
           </div>
 
           {/* Diagnostic Results (Right Column) */}
-          <div className="lg:col-span-5 bg-surface-white border border-line-gray p-8 rounded-[25px] flex flex-col justify-between shadow-sm relative overflow-hidden">
+          <div className="lg:col-span-5 bg-surface-white border border-line-gray p-8 rounded-2xl flex flex-col justify-between shadow-sm relative overflow-hidden">
             {/* Top clinical seal */}
             <div className="pb-6 border-b border-line-gray flex items-center gap-3">
               <div className="w-10 h-10 rounded-[12px] bg-deep-graphite/5 flex items-center justify-center text-deep-graphite">
@@ -248,7 +248,7 @@ export default function InteractiveCalculator() {
                   <h3 className="text-subheading font-bold text-deep-graphite leading-tight">
                     {advice.title}
                   </h3>
-                  <div className="mt-4 p-4 bg-canvas-warmth border border-line-gray rounded-[12px]">
+                  <div className="mt-4 p-4 bg-canvas-warmth border border-line-gray rounded-xl">
                     <span className="text-[10px] font-bold uppercase tracking-wider text-headline-dark/70 block">
                       Recommended Protocol
                     </span>
@@ -283,7 +283,7 @@ export default function InteractiveCalculator() {
             {/* Direct Booking CTA */}
             <a
               href="#booking"
-              className="btn-primary w-full text-center py-3.5 font-bold uppercase tracking-wider text-xs shadow-md mt-6 rounded-[12px] flex items-center justify-center gap-2"
+              className="btn-primary w-full text-center py-3.5 font-bold uppercase tracking-wider text-xs shadow-md mt-6 rounded-xl flex items-center justify-center gap-2"
             >
               <Calendar size={14} />
               <span>Claim Free Joint Audit & Book Priority Slot</span>
