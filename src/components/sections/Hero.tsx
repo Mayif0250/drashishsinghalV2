@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Star, Play, Award, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { LiquidButton } from "@/components/ui/liquid-glass-button";
 
 export default function Hero() {
   return (
@@ -170,9 +171,9 @@ export default function Hero() {
         transition={{ duration: 0.6, delay: 0.6 }}
         className="absolute left-1/2 -translate-x-1/2 bottom-8 md:bottom-12 z-50 pointer-events-auto"
       >
-        <Link href="#booking" className="btn-parloa-light flex items-center gap-2.5">
+        <LiquidButton href="#booking" size="lg" className="text-canvas-white hover:text-sunset-orange font-medium flex items-center justify-center gap-2.5">
           Book An Appointment <ArrowRight size={15} />
-        </Link>
+        </LiquidButton>
       </motion.div>
 
     </section>
